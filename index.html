@@ -214,7 +214,6 @@ p.section-sub{color:var(--muted);font-size:0.88rem;margin:-10px 0 20px;}
 .modal.graded{border-left-color:var(--orange);}
 .modal.checkin{border-left-color:var(--teal);}
 .modal.goal{border-left-color:var(--gold);}
-.modal.milestone{border-left-color:var(--gold);}
 .modal .close{
   position:absolute;top:14px;right:16px;background:none;border:none;
   font-size:1.4rem;cursor:pointer;color:var(--muted);font-family:'JetBrains Mono',monospace;
@@ -242,21 +241,10 @@ p.section-sub{color:var(--muted);font-size:0.88rem;margin:-10px 0 20px;}
 .msection.coding .mlabel{color:var(--gold);}
 .msection.activities{background:#eafaf0;border-color:#bbf0d0;}
 .msection.activities .mlabel{color:var(--text);}
-.msection.goal{background:#fff9e6;border-color:#fde68a;}
-.msection.goal .mlabel{color:var(--gold);}
-.msection.graded{background:#fff1e6;border-color:#fed7aa;}
-.msection.graded .mlabel{color:var(--orange);}
-.msection.checkin{background:#e6f7f5;border-color:#99e6da;}
-.msection.checkin .mlabel{color:var(--teal);}
-.msection.typing.flag-milestone{background:#fff9e6;border-color:#fde68a;}
-.msection.typing.flag-warn{background:#fff0eb;border-color:#fdba8c;}
-.msection.typing.flag-hold{opacity:0.7;}
-.hold-note{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--muted);margin-top:6px;}
 .msection ul{padding-left:20px;}
 .msection li{margin-bottom:4px;font-size:0.92rem;}
 .mbadge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.66rem;font-weight:700;color:#fff;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:middle;background:var(--gold);}
 .mbadge.graded{background:var(--orange);}
-.mbadge.warn{background:var(--orange);}
 .milestone-note{font-family:'JetBrains Mono',monospace;font-size:0.8rem;background:#fff;border-left:3px solid var(--gold);padding:8px 12px;border-radius:4px;margin-top:6px;color:#5c4a12;}
 .reslink{
   font-family:'JetBrains Mono',monospace;font-size:0.85em;font-weight:600;
@@ -308,8 +296,6 @@ footer{
 <div class="quarter-switch">
   <button class="active" data-qtr="1">Quarter 1</button>
   <button data-qtr="2">Quarter 2</button>
-  <button data-qtr="3">Quarter 3</button>
-  <button data-qtr="4">Quarter 4</button>
 </div>
 
 <nav class="tabs">
@@ -440,15 +426,7 @@ footer{
       </div>
     </div>
 
-    <p class="section-sub">Links above are pulled straight from the Q2 pacing guide.</p>
-  </div>
-
-  <div class="qtr-block" data-qtr="3">
-    <p class="section-sub">Quick Links for Quarter 3 (AI HackStack) haven't been sent yet — they'll show up here once you share them. In the meantime, check the Calendar tab for the full rotation-by-rotation AI HackStack + hackathon plan.</p>
-  </div>
-
-  <div class="qtr-block" data-qtr="4">
-    <p class="section-sub">Quick Links for Quarter 4 (Capstone) haven't been sent yet — they'll show up here once you share them. In the meantime, check the Calendar tab for the full rotation-by-rotation capstone plan.</p>
+    <p class="section-sub">Links above are pulled straight from the Q2 pacing guide. WPM goals are TBD — a revised full Q1/Q2 schedule is coming.</p>
   </div>
 
   </div>
@@ -476,53 +454,36 @@ footer{
   <div class="page" id="page-reference">
     <h2 class="section-title">Quick Reference</h2>
 
-    <details class="ref">
-      <summary>📅 Year at a Glance</summary>
-      <div class="tw-table">
-      <table class="ref-table">
-        <tr><th>Quarter</th><th>Unit</th><th>Typing Lessons</th><th>WPM Arc</th><th>Accuracy</th><th>Coding</th></tr>
-        <tr><td>Q1</td><td>Power On</td><td>1–144</td><td>15 → 25</td><td>90%</td><td>CodeCombat CS1 + GD1</td></tr>
-        <tr><td>Q2</td><td>Data Speaks</td><td>145–274</td><td>25 → 32</td><td>92%</td><td>GD1 Tabula Rasa + CS2</td></tr>
-        <tr><td>Q3</td><td>Think Like a Coder</td><td>275–346</td><td>32 → 38</td><td>94%</td><td>AI HackStack + Hackathon</td></tr>
-        <tr><td>Q4</td><td>Make Your Mark</td><td>347–388+</td><td>38 → 45</td><td>95%</td><td>AI HackStack 2 + Capstone</td></tr>
-      </table>
-      </div>
-      <p style="margin-top:10px;font-size:0.82rem;color:var(--muted);">Year end target: lesson 388 · 45 WPM · 95% accuracy · full portfolio (CS1, CS2, GD1, AI HackStack, Capstone). Typing is a <strong>lesson floor</strong> (minimum required) — students who run ahead move to Dynamic Lessons rather than racing further into the sequence. Accuracy is the primary metric; WPM growth deliberately flattens in Q3 as numbers and symbols suppress speed.</p>
-    </details>
-
-    <details class="ref">
-      <summary>📊 Check-in Formats Glossary</summary>
-      <p style="margin:0 0 10px;font-size:0.82rem;color:var(--muted);">18 formats so no student does the same check-in twice in a row. Everything is scored against the student's own previous best — no public speed leaderboards. Bracket Battle and Boss Fight are the only competitive formats, and neither exposes an individual.</p>
-      <div id="ref-checkin-glossary"></div>
-    </details>
-
-    <details class="ref">
-      <summary>💯 Grading &amp; Policy</summary>
-      <div class="tw-table">
-      <table class="ref-table">
-        <tr><th>Item</th><th>Count / Quarter</th><th>Points Each</th></tr>
-        <tr><td>Low-stakes check-ins</td><td>~11</td><td>5</td></tr>
-        <tr><td>Data Story (Sheets chart + reflection)</td><td>1</td><td>10</td></tr>
-        <tr><td>Graded midquarter test</td><td>1</td><td>50</td></tr>
-        <tr><td>Graded quarter final</td><td>1</td><td>100</td></tr>
-      </table>
-      </div>
-      <ul class="notes-list" style="margin-top:12px;">
-        <li><strong>Form deduction:</strong> 10 points off any graded test for hunt-and-peck, wrong fingers, or looking down at the keyboard. Announce this in R1 and enforce it from the first graded test.</li>
-        <li><strong>Philosophy:</strong> personal-record based. Students are scored against their own previous best, not against classmates. No public speed leaderboards.</li>
-      </ul>
-    </details>
-
   <div class="qtr-block active" data-qtr="1">
 
     <details class="ref">
-      <summary>⌨️ Typing Pacing — Q1 (lesson floor by rotation)</summary>
-      <div id="ref-typing-1"></div>
+      <summary>⌨️ Typing Goals at a Glance</summary>
+      <div class="tw-table">
+      <table class="ref-table">
+        <tr><th>Rotations</th><th>Week</th><th>Typing Jungle Lessons</th><th>WPM Goal</th><th>Accuracy</th><th>Assessment</th></tr>
+        <tr><td>R1–2</td><td>1</td><td>1–25</td><td>—</td><td>—</td><td>Baseline (ungraded)</td></tr>
+        <tr><td>R3–4</td><td>2</td><td>25–50</td><td>10</td><td>70%</td><td>Check-in #1 (5 pts)</td></tr>
+        <tr><td>R5–6</td><td>3–4</td><td>50–80</td><td>12</td><td>75%</td><td>Check-in #2 (5 pts)</td></tr>
+        <tr><td>R7–8</td><td>5–6</td><td>80–110</td><td>14</td><td>75%</td><td>Check-in #3 (5 pts)</td></tr>
+        <tr><td>R9–10</td><td>7–8</td><td>110–130</td><td>15</td><td>80%</td><td>Assessment #1 (graded)</td></tr>
+        <tr><td>R11–12</td><td>9–10</td><td>130–145</td><td>16</td><td>80%</td><td>Test 1 (graded)</td></tr>
+        <tr><td>R13–14</td><td>11–12</td><td>145–150 (ceiling)</td><td>17</td><td>80%</td><td>Check-in #6 (5 pts)</td></tr>
+        <tr><td>R15–16</td><td>13–14</td><td>150 (speed drills)</td><td>18</td><td>80%</td><td>Check-in #7 (5 pts)</td></tr>
+        <tr><td>R17–18</td><td>15–16</td><td>150 (speed drills)</td><td>19</td><td>80%</td><td>Check-in #8 (5 pts)</td></tr>
+        <tr><td>R19–20</td><td>17–18</td><td>All lessons through 150</td><td>20</td><td>80%</td><td>Final Assessment (graded)</td></tr>
+      </table>
+      </div>
     </details>
 
     <details class="ref">
       <summary>💻 CodeCombat — Graded Milestones (Q1)</summary>
-      <div id="ref-milestones-1"></div>
+      <div class="tw-table">
+      <table class="ref-table">
+        <tr><th>Rotation</th><th>Due</th><th>What Students Submit</th></tr>
+        <tr><td>R12</td><td>Sep 17</td><td>🏆 CS1 Arena screenshot — shows arena attempted/completed; uploaded to Canvas</td></tr>
+      </table>
+      </div>
+      <p style="margin-top:10px;font-size:0.82rem;color:var(--muted);">Remaining CodeCombat milestones (GD1 Tabula Rasa, CS2 Arena, CS2 progress) fall in Quarter 2.</p>
     </details>
 
     <details class="ref">
@@ -540,15 +501,15 @@ footer{
     <details class="ref">
       <summary>📝 Teacher Notes &amp; Reminders</summary>
       <ul class="notes-list">
-        <li><strong>Typing Jungle is now a floor, not a ceiling:</strong> students who reach the lesson floor early move to Dynamic Lessons (adaptive drill on their own weakest keys) instead of idling or racing ahead into unrelated content.</li>
+        <li><strong>Typing Jungle locks:</strong> remember to unlock lesson batches in the teacher dashboard — students cannot progress past a locked lesson.</li>
         <li><strong>Stands and keyboards</strong> live at the front of both rooms. Push students toward independence (grabbing their own) by Rotation 4.</li>
         <li><strong>CodeCombat teacher dashboard</strong> lets you monitor student progress in real time — glance at the class view during coding blocks.</li>
-        <li><strong>WPM goals are targets, not cutoffs</strong> — and now carry a paired accuracy goal. Some students will exceed them; celebrate that. Some will trail; encourage consistency over speed.</li>
-        <li><strong>Check-in variety:</strong> 18 rotating formats mean no student repeats a format twice in a row — see the Check-in Formats Glossary above for what each one asks students to do.</li>
+        <li><strong>WPM goals are targets, not cutoffs.</strong> Some students will exceed them; celebrate that. Some will trail; encourage consistency over speed.</li>
+        <li><strong>Check-in screenshots</strong> can be submitted as image uploads or Google Slide inserts on Canvas — whatever is simplest for your class.</li>
         <li><strong>Women in STEM presentations</strong> use the PVLEGS rubric. Remind students during typing and coding time that presentations are coming up.</li>
-        <li><strong>Grade Tracker:</strong> collect the Canvas sharing link as an editor around the midpoint of the quarter so you only need one link for the whole quarter.</li>
+        <li><strong>Grade Tracker:</strong> collect the Canvas sharing link as an editor in Rotation 12–13 so you only need one link for the whole quarter.</li>
         <li><strong>Co-teacher:</strong> touch base before each rotation. Filler time in Rotation 1 can vary a lot by period — have a backup plan ready.</li>
-        <li><strong>CS1→GD1 handoff:</strong> the Arena is intentionally hard with catch-up rotations before the graded attempt. GD1 levels run slower on purpose — let students play with their creations.</li>
+        <li><strong>CS1→GD1 handoff:</strong> the Arena (R10–12) is intentionally hard with two catch-up rotations before the graded attempt in R12. GD1 levels (R13+) run slower on purpose — let students play with their creations.</li>
       </ul>
     </details>
 
@@ -557,13 +518,37 @@ footer{
   <div class="qtr-block" data-qtr="2">
 
     <details class="ref">
-      <summary>⌨️ Typing Pacing — Q2 (lesson floor by rotation)</summary>
-      <div id="ref-typing-2"></div>
+      <summary>⌨️ Typing Goals at a Glance — Q2</summary>
+      <p style="margin:0 0 10px;font-size:0.82rem;color:var(--muted);">WPM/Accuracy goals are TBD — a revised full Q1/Q2 schedule is coming from Cowork. Everything else below is final.</p>
+      <div class="tw-table">
+      <table class="ref-table">
+        <tr><th>Rotations</th><th>Week</th><th>Typing Jungle Lessons</th><th>WPM Goal</th><th>Accuracy</th><th>Assessment</th></tr>
+        <tr><td>R1–2</td><td>1</td><td>150–165</td><td>TBD</td><td>TBD</td><td>Check-in #1 (5 pts)</td></tr>
+        <tr><td>R3–4</td><td>2–3</td><td>165–180</td><td>TBD</td><td>TBD</td><td>Check-in #2 (5 pts)</td></tr>
+        <tr><td>R5–6</td><td>4–5</td><td>180–195</td><td>TBD</td><td>TBD</td><td>Graded Test — Check-in 3</td></tr>
+        <tr><td>R7–8</td><td>6–7</td><td>195–210</td><td>TBD</td><td>TBD</td><td>Check-in #4 (5 pts)</td></tr>
+        <tr><td>R9–10</td><td>8–9</td><td>210–225</td><td>TBD</td><td>TBD</td><td>Check-in #5 (5 pts)</td></tr>
+        <tr><td>R11–12</td><td>10–11</td><td>225–240 (ceiling)</td><td>TBD</td><td>TBD</td><td>Check-in #6 (5 pts)</td></tr>
+        <tr><td>R13–14</td><td>12–13</td><td>240 (speed drills)</td><td>TBD</td><td>TBD</td><td>Check-in #7 (5 pts)</td></tr>
+        <tr><td>R15–16</td><td>14–15</td><td>240 (speed drills)</td><td>TBD</td><td>TBD</td><td>Graded Test — Check-in 4</td></tr>
+        <tr><td>R17–18</td><td>16–17</td><td>240 (speed drills)</td><td>TBD</td><td>TBD</td><td>Check-in #9 (5 pts)</td></tr>
+        <tr><td>R19–20</td><td>18</td><td>All lessons through 240</td><td>TBD</td><td>TBD</td><td>Q2 Final (graded)</td></tr>
+      </table>
+      </div>
     </details>
 
     <details class="ref">
       <summary>💻 CodeCombat — Graded Milestones (Q2)</summary>
-      <div id="ref-milestones-2"></div>
+      <div class="tw-table">
+      <table class="ref-table">
+        <tr><th>Rotation</th><th>Due</th><th>Points</th><th>What Students Submit</th></tr>
+        <tr><td>R3</td><td>Oct 20</td><td>100</td><td>🏆 Tabula Rasa game link — original game, working win/lose condition, 3+ GD1 concepts, written peer feedback</td></tr>
+        <tr><td>R15</td><td>Nov 21</td><td>50</td><td>🏆 CS2 progress check — Course Guide screenshot showing levels through at least Lvl 19</td></tr>
+        <tr><td>R16</td><td>Nov 25</td><td>50</td><td>🏆 CS2 Arena screenshot — best attempt; graded on effort + levels reached</td></tr>
+        <tr><td>R17</td><td>Dec 3</td><td>50</td><td>🏆 CodeCombat Portfolio — CS1 Arena + CS2 Arena + Tabula Rasa + Course Guide, one Canvas submission</td></tr>
+        <tr><td>R20</td><td>Dec 12</td><td>—</td><td>Final grades confirmed; AI question card (formative, not graded)</td></tr>
+      </table>
+      </div>
     </details>
 
     <details class="ref">
@@ -573,7 +558,7 @@ footer{
         <li><strong>Level 8 onward:</strong> expect about 1 level per rotation for most students. That's normal — do not rush this section.</li>
         <li><strong>Fast finishers</strong> should work premium challenge levels rather than just racing ahead — the CS2 concepts need time to sink in.</li>
         <li><strong>R6 has no CodeCombat</strong> — that's the Code.org Pixelation (Binary → RGB → Hex) activity instead. CodeCombat resumes R7.</li>
-        <li><strong>R19–R20</strong> are a Bridge to AI + handoff to the Q3 AI HackStack — no new CodeCombat levels, just wrap-up and reflection.</li>
+        <li><strong>R19–R20</strong> are a Bridge to AI + handoff to the Q3 AI Hackathon — no new CodeCombat levels, just wrap-up and reflection.</li>
       </ul>
     </details>
 
@@ -582,116 +567,21 @@ footer{
       <ul class="notes-list">
         <li><strong>Cricut overflow from Q1:</strong> have students email you to schedule IS make-up time rather than holding the whole class back.</li>
         <li><strong>Binary to RGB connection:</strong> the Pixelation activity in R6 is a great bridge — binary becomes visual and suddenly makes sense. Lean into the "aha moment."</li>
-        <li><strong>Numbers begin mid-quarter (R13):</strong> expect a visible WPM dip when numbers start — that's expected, not a regression. Number Row Boss check-in exists specifically to normalize it.</li>
-        <li><strong>Start-Up Challenge buy-in is everything</strong> — if students are excited about their product idea, the rest flows. Spend real time on the brainstorm.</li>
-        <li><strong>Co-teacher coordination:</strong> lab days require split scheduling for some periods. Set a timer and be strict about the swap.</li>
-        <li><strong>Grade Tracker:</strong> remind students to update their Q2 sheet mid-quarter so you can access it for grading.</li>
-        <li><strong>Typing form:</strong> the 10-pt deduction for incorrect form applies from the first graded test — announce it clearly so students aren't surprised.</li>
+        <li><strong>Lesson pacing update:</strong> Q2's lesson ceiling is now 240 (was 274+ in the original draft) — the Typing Jungle numbers section doesn't get reached this quarter under the revised pacing, so that content shifts to Q3.</li>
+        <li><strong>Start-Up Challenge buy-in is everything</strong> — if students are excited about their product idea, the rest flows. Spend real time on the brainstorm in R9.</li>
+        <li><strong>Co-teacher coordination:</strong> R4–R5 lab days require split scheduling for some periods. Set a timer and be strict about the 35-min swap.</li>
+        <li><strong>Grade Tracker:</strong> remind students to update their Q2 sheet around R6 so you can access it mid-quarter for grading.</li>
+        <li><strong>Typing form:</strong> the 10-pt deduction for incorrect form is new this quarter — announce it clearly in R5 so students aren't surprised.</li>
         <li><strong>Code.org Pixelation:</strong> preview the lesson yourself before R6 so you can guide students who get stuck on the RGB/Hex toggle.</li>
-        <li><strong>Presentations:</strong> print the PVLEGS rubric for each presenter ahead of time to streamline scoring.</li>
+        <li><strong>Presentations (R19–R20):</strong> print the PVLEGS rubric for each presenter ahead of time to streamline scoring.</li>
       </ul>
     </details>
 
   </div>
-
-  <div class="qtr-block" data-qtr="3">
-
-    <details class="ref">
-      <summary>⌨️ Typing Pacing — Q3 (lesson floor by rotation)</summary>
-      <div id="ref-typing-3"></div>
-    </details>
-
-    <details class="ref">
-      <summary>💻 CodeCombat / AI HackStack — Graded Milestones (Q3)</summary>
-      <div id="ref-milestones-3"></div>
-    </details>
-
-    <details class="ref">
-      <summary>🤖 AI HackStack — The Prompt Budget Constraint</summary>
-      <ul class="notes-list">
-        <li><strong>10 AI prompts per student per week</strong>, 100 per teacher per month. At ~2.3 rotations/week that's roughly <strong>4 prompts per student per rotation</strong> — the single biggest design constraint on the hackathon.</li>
-        <li><strong>Draft on paper first.</strong> Students draft and refine prompts before spending one — this forces intentional prompting instead of slot-machine guessing, which is the actual skill they should leave with.</li>
-        <li><strong>Teacher budget:</strong> use your 100 monthly prompts for demos only — about 25 a week.</li>
-        <li><strong>Before Q3 starts:</strong> confirm your license tier includes AI 1, AI 2, Career Readiness 1–2, Algebra + AI, Cybersecurity + AI, and AI Explorations. Student licenses are required for all of them.</li>
-      </ul>
-      <div class="tw-table" style="margin-top:12px;">
-      <table class="ref-table">
-        <tr><th>Rotations</th><th>Phase</th></tr>
-        <tr><td>R1–R4</td><td>AI 1 foundations — how LLMs predict text, prompt engineering, bias &amp; ethics</td></tr>
-        <tr><td>R5–R8</td><td>AI Explorations guided projects — art, weather app, word game, simulation</td></tr>
-        <tr><td>R9–R10</td><td>Hackathon launch + Sprint 0 (paper planning, prompt budget, no AI yet)</td></tr>
-        <tr><td>R11–R15</td><td>Build sprints; checkpoint demo at R13; feature freeze ends R15</td></tr>
-        <tr><td>R16–R17</td><td>Polish and dress rehearsal</td></tr>
-        <tr><td>R18–R19</td><td>Demo Day (graded) + judging</td></tr>
-        <tr><td>R20</td><td>Prompt-log reflection and Q4 preview</td></tr>
-      </table>
-      </div>
-      <p style="margin-top:10px;font-size:0.82rem;color:var(--muted);">Teams of 3, every member has a speaking part. Judging categories: Most Useful, Most Creative, Best Prompt Craft, Best Teamwork — so more teams win something, and Best Prompt Craft rewards the thinking rather than the polish. Sprint 0 has no AI access on purpose: problem statement, paper prototype, written prompt budget before anyone touches a model.</p>
-    </details>
-
-    <details class="ref">
-      <summary>📝 Teacher Notes &amp; Reminders — Q3</summary>
-      <ul class="notes-list">
-        <li><strong>Symbols begin R9</strong> — expect another visible WPM dip. Tell students it's coming or they'll think they're regressing.</li>
-        <li><strong>Feature freeze at R15</strong> — no new hackathon features after this point; remaining time is polish, rehearsal, and demo prep only.</li>
-        <li><strong>Demo Day (R18) is graded</strong> using the PVLEGS rubric — print copies ahead of time.</li>
-      </ul>
-    </details>
-
-  </div>
-
-  <div class="qtr-block" data-qtr="4">
-
-    <details class="ref">
-      <summary>⌨️ Typing Pacing — Q4 (lesson floor by rotation)</summary>
-      <div id="ref-typing-4"></div>
-    </details>
-
-    <details class="ref">
-      <summary>💻 Capstone — Graded Milestones (Q4)</summary>
-      <div id="ref-milestones-4"></div>
-    </details>
-
-    <details class="ref">
-      <summary>🎓 Capstone — Shape of the Quarter</summary>
-      <div class="tw-table">
-      <table class="ref-table">
-        <tr><th>Rotations</th><th>Phase</th></tr>
-        <tr><td>R1–R6</td><td>Cybersecurity + AI, Career Readiness 1, Algebra + AI, AI 2</td></tr>
-        <tr><td>R7</td><td>Capstone launch — student choice, solve a real problem at MCA</td></tr>
-        <tr><td>R8–R15</td><td>Build sprints; teacher checkpoint at R11; feature freeze R14</td></tr>
-        <tr><td>R16–R17</td><td>Portfolio assembly and rehearsal</td></tr>
-        <tr><td>R18–R19</td><td>Capstone presentations + Year-End Showcase</td></tr>
-        <tr><td>R20</td><td>Reflection and close</td></tr>
-      </table>
-      </div>
-      <p style="margin-top:10px;font-size:0.82rem;color:var(--muted);">The Q4 typing load is deliberately the lightest of the year — only 42 new lessons — because symbols are slow and the capstone competes for the same attention. R16–R18 are typing-maintenance only.</p>
-    </details>
-
-    <details class="ref">
-      <summary>📝 Teacher Notes &amp; Reminders — Q4</summary>
-      <ul class="notes-list">
-        <li><strong>Advanced Level 1 completes at R11</strong> — this is the official year-end typing target (lesson 388). Everything after is stretch/maintenance.</li>
-        <li><strong>Feature freeze at R14</strong> — capstone build stops; remaining time is testing, documentation, and rehearsal.</li>
-        <li><strong>Year-End Showcase (R19)</strong> — open house format; invite families/other classes if possible.</li>
-      </ul>
-    </details>
-
-  </div>
-
-  <details class="ref">
-    <summary>📌 Open Items</summary>
-    <ul class="notes-list">
-      <li><strong>Rotation dates:</strong> every rotation above is keyed by quarter + rotation number, not a real calendar date. The calendar view is currently using placeholder dates — map rotations to real dates from the official 2026–27 MCA calendar as soon as it's available.</li>
-      <li><strong>Q1 R1–R2</strong> have no coding — accounts, class join codes, and norms take the full block. That's intentional, not a gap.</li>
-      <li><strong>AI HackStack license tier</strong> — confirm coverage for AI 1, AI 2, Career Readiness 1–2, Algebra + AI, Cybersecurity + AI, and AI Explorations before Q3.</li>
-      <li><strong>Q2 R5 and R19</strong> have no coding block — those rotations are fully consumed by the Computer Parts Lab Practical and the Start-Up Challenge presentations.</li>
-    </ul>
-  </details>
 
 </div>
 
-<footer>// Computing &amp; Digital Dynamics · 2026–2027 · full-year pacing from the Cowork spec (all 4 quarters, 80 rotations) — rotation dates are placeholders until the official 2026–27 MCA calendar is mapped in.</footer>
+<footer>// Computing &amp; Digital Dynamics · 2026–2027 · built from the Q1 &amp; Q2 Pacing Guide drafts &amp; CodeCombat schedules — update rotation dates to match this year's calendar.</footer>
 
 <div class="overlay" id="overlay">
   <div class="modal" id="modal"></div>
@@ -733,71 +623,160 @@ const L = {
 };
 function link(url, text){ return `<a class="reslink" target="_blank" rel="noopener" href="${url}">${text}</a>`; }
 
-// --- Full-year pacing data (source: Cowork full-year pacing spec, 2026-27) ---
-// Rotation dates are placeholders (2026-27 calendar not yet confirmed) — see footer note.
-const QUARTERS = [{"quarter":1,"name":"Quarter 1 - Power On","typing_range":"Lessons 1-144","wpm_arc":"15 -> 25 WPM","accuracy_target":90,"coding_arc":"CodeCombat CS1 + GD1","rotations":[{"rotation":1,"typing":{"lesson_floor":8,"new_this_rotation":true,"band":"1-8","section":"Home Row: f j k d s l","flag":"setup"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"BASELINE","name":"Baseline Bank","points":0,"description":"Ungraded 3-min test with correct form. Whatever you get becomes your Personal Record (PR). Everything this year is measured against YOUR number, not anyone else's."},"coding":{"target":"Setup","detail":"Accounts, class join code, classroom norms. No coding yet."}},{"rotation":2,"typing":{"lesson_floor":16,"new_this_rotation":true,"band":"9-16","section":"Home Row: a ; g h","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Setup","detail":"Course Guide tour; how levels and stars work."}},{"rotation":3,"typing":{"lesson_floor":24,"new_this_rotation":true,"band":"17-24","section":"Home Row complete -> Top Row begins","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"BLIND","name":"Blind Draw","points":5,"description":"Sticky note over the on-screen keyboard hint (or eyes up on the projector). Proves you are actually touch typing instead of reading the guide."},"coding":{"target":"CS1 Lvl 1-2","detail":"Account setup + basic movement: hero.moveRight/Left/Up/Down"}},{"rotation":4,"typing":{"lesson_floor":32,"new_this_rotation":true,"band":"25-32","section":"Top Row: r u e i w o","flag":"new"},"wpm_goal":16,"accuracy_goal":85,"checkin":{"code":"PR","name":"Beat Your PR","points":5,"description":"1-min test. Full credit for beating your own Personal Record by any amount. Tie your PR = 4 pts. No comparison to classmates, ever."},"coding":{"target":"CS1 Lvl 3-7","detail":"Movement patterns, Python syntax, hero.attack()"}},{"rotation":5,"typing":{"lesson_floor":40,"new_this_rotation":true,"band":"33-40","section":"Top Row: q y p t","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CS1 Lvl 8-11","detail":"Strings, hero.say(), while loop intro"}},{"rotation":6,"typing":{"lesson_floor":51,"new_this_rotation":true,"band":"41-51","section":"Top Row COMPLETE","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"GAUNTLET","name":"Accuracy Gauntlet","points":5,"description":"3-min run at ANY speed you want - but every error costs. 100% accuracy = full credit regardless of WPM. Teaches that clean beats fast."},"coding":{"target":"CS1 Lvl 12-15","detail":"While loops + conditions, findNearest()"}},{"rotation":7,"typing":{"lesson_floor":60,"new_this_rotation":true,"band":"52-60","section":"Bottom Row: v m c ,","flag":"new"},"wpm_goal":18,"accuracy_goal":86,"checkin":{"code":"PREDICT","name":"Predict & Prove","points":5,"description":"Write your predicted WPM BEFORE the test. Scored on how close your prediction was, not how fast you typed. Rewards knowing yourself."},"coding":{"target":"CS1 Lvl 16-18","detail":"Loop conditions, if statements intro"}},{"rotation":8,"typing":{"lesson_floor":68,"new_this_rotation":true,"band":"61-68","section":"Bottom Row continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CS1 Lvl 19-21","detail":"if/else: choosing between two actions"}},{"rotation":9,"typing":{"lesson_floor":78,"new_this_rotation":true,"band":"69-78","section":"Bottom Row: z / b n","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"HEATMAP","name":"Heatmap Autopsy","points":5,"description":"Screenshot your TypingClub key-accuracy heatmap. Name your 3 worst keys and write one sentence on how you will fix them. Diagnosis, not speed."},"coding":{"target":"CS1 Lvl 22-24","detail":"Combining loops + conditionals"}},{"rotation":10,"typing":{"lesson_floor":88,"new_this_rotation":true,"band":"79-88","section":"ALL 26 LETTERS COMPLETE","flag":"milestone"},"wpm_goal":20,"accuracy_goal":88,"checkin":{"code":"GRADED_MID","name":"GRADED Typing Test - Midquarter","points":50,"description":"Formal 3-min test. Graded on adjusted WPM + accuracy against the rotation goal. 10 pt deduction for incorrect form (hunt-and-peck, wrong fingers, looking down)."},"coding":{"target":"CS1 Arena","detail":"Apply all concepts. Intentionally hard."}},{"rotation":11,"typing":{"lesson_floor":96,"new_this_rotation":true,"band":"89-96","section":"Basic Level 1 - full alphabet drills","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CS1 Arena","detail":"Arena continued + catch-up for Lvls 20-24"}},{"rotation":12,"typing":{"lesson_floor":105,"new_this_rotation":true,"band":"97-105","section":"Basic Level 1 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"COMEBACK","name":"Best of Three","points":5,"description":"Three attempts, highest one counts. Removes the one-shot anxiety and rewards persistence."},"coding":{"target":"CS1 Arena GRADED","detail":"Best attempt this rotation. Screenshot to Canvas."}},{"rotation":13,"typing":{"lesson_floor":113,"new_this_rotation":true,"band":"106-113","section":"Basic Level 1 continued","flag":"new"},"wpm_goal":21,"accuracy_goal":88,"checkin":{"code":"BRACKET","name":"Bracket Battle","points":5,"description":"Single-elimination head-to-head races, seeded so similar speeds meet in round 1. Everyone gets at least 2 races. Participation earns full credit."},"coding":{"target":"GD1 Lvl 1","detail":"Game Dev intro: coordinate grid, first game elements"}},{"rotation":14,"typing":{"lesson_floor":126,"new_this_rotation":true,"band":"114-126","section":"Basic Level 1 COMPLETE","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"GD1 Lvl 2-3","detail":"Walls, floors, traps; grid to code"}},{"rotation":15,"typing":{"lesson_floor":132,"new_this_rotation":true,"band":"127-132","section":"Tricky Words 1 - homophones","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"TRADEOFF","name":"Speed vs. Accuracy Lab","points":5,"description":"Two runs: one 'go as fast as you can,' one 'go perfectly clean.' Compare adjusted WPM. Most students discover clean is actually faster."},"coding":{"target":"GD1 Lvl 4-5","detail":"Spawning coins + enemies, game.spawnXY()"}},{"rotation":16,"typing":{"lesson_floor":136,"new_this_rotation":true,"band":"133-136","section":"Tricky Words 1 COMPLETE","flag":"milestone"},"wpm_goal":23,"accuracy_goal":90,"checkin":{"code":"DATASTORY","name":"Data Story","points":10,"description":"Chart your own WPM + accuracy across the quarter in Google Sheets, then write 2 sentences: what the trend shows and what you will change. Ties directly to the spreadsheet unit."},"coding":{"target":"GD1 Lvl 6-7","detail":"Win/lose conditions, game.addManualGoalTrigger()"}},{"rotation":17,"typing":{"lesson_floor":140,"new_this_rotation":true,"band":"137-140","section":"Shift Key introduced (F J D K)","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"GD1 Lvl 8-9","detail":"Time-based spawning, game.time"}},{"rotation":18,"typing":{"lesson_floor":144,"new_this_rotation":true,"band":"141-144","section":"Shift Key continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"OWNWORDS","name":"Type Your Own Words","points":5,"description":"Type a paragraph YOU wrote (any class, any topic). Real composition speed is different from copy-typing speed - and this is the speed that matters for school."},"coding":{"target":"GD1 Lvl 10-11","detail":"Game UI: score display, timers"}},{"rotation":19,"typing":{"lesson_floor":144,"new_this_rotation":false,"band":"hold at 144","section":"No new lessons - Q1 Final Assessment","flag":"hold"},"wpm_goal":25,"accuracy_goal":90,"checkin":{"code":"GRADED_FINAL","name":"GRADED Typing Test - Quarter Final","points":100,"description":"Formal 5-min benchmark test. This is the quarter grade. Adjusted WPM + accuracy vs. the quarter target. 10 pt deduction for incorrect form."},"coding":{"target":"GD1 Lvl 12-13","detail":"Branching events in game loops"}},{"rotation":20,"typing":{"lesson_floor":144,"new_this_rotation":false,"band":"hold at 144","section":"Catch-up + quarter close","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"GD1 Lvl 14-16","detail":"Playable hero control. Q1 CodeCombat complete."}}]},{"quarter":2,"name":"Quarter 2 - Data Speaks","typing_range":"Lessons 145-274","wpm_arc":"25 -> 32 WPM","accuracy_target":92,"coding_arc":"GD1 Tabula Rasa + CodeCombat CS2","rotations":[{"rotation":1,"typing":{"lesson_floor":152,"new_this_rotation":true,"band":"1-152","section":"Shift Key: S L A : G H T Y","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"GD1 Lvl 16-17","detail":"Finish guided levels: complex layouts, randomized spawns"}},{"rotation":2,"typing":{"lesson_floor":158,"new_this_rotation":true,"band":"153-158","section":"Shift Key continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"PR","name":"Beat Your PR","points":5,"description":"1-min test. Full credit for beating your own Personal Record by any amount. Tie your PR = 4 pts. No comparison to classmates, ever."},"coding":{"target":"Tabula Rasa","detail":"Build your original game: terrain, spawns, win/lose"}},{"rotation":3,"typing":{"lesson_floor":165,"new_this_rotation":true,"band":"159-165","section":"Shift Key: R U E I W O Q P","flag":"new"},"wpm_goal":26,"accuracy_goal":90,"checkin":{"code":"ENDURANCE","name":"Endurance Run","points":5,"description":"5-minute continuous test instead of 1 minute. Stamina, not sprinting - closer to what a real essay or timed test demands."},"coding":{"target":"Tabula Rasa GRADED","detail":"Polish + peer playtest. Game link to Canvas."}},{"rotation":4,"typing":{"lesson_floor":172,"new_this_rotation":true,"band":"166-172","section":"Shift Key continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CS2 Lvl 1","detail":"Functions intro: why write named blocks of code?"}},{"rotation":5,"typing":{"lesson_floor":180,"new_this_rotation":true,"band":"173-180","section":"Shift Key: V M C ? Z N X B","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"BOSS","name":"The Boss Fight","points":5,"description":"Teacher types live on the projector. Class average vs. teacher WPM. If the class wins, the class picks the next check-in format."},"coding":{"target":"(no coding)","detail":"Full rotation: typing check-in + Computer Parts Lab Practical"}},{"rotation":6,"typing":{"lesson_floor":191,"new_this_rotation":true,"band":"181-191","section":"SHIFT KEY COMPLETE - all capitals","flag":"milestone"},"wpm_goal":27,"accuracy_goal":91,"checkin":{"code":"HEATMAP","name":"Heatmap Autopsy","points":5,"description":"Screenshot your TypingClub key-accuracy heatmap. Name your 3 worst keys and write one sentence on how you will fix them. Diagnosis, not speed."},"coding":{"target":"Pixelation","detail":"Binary -> RGB -> Hex color unit (standalone lesson)"}},{"rotation":7,"typing":{"lesson_floor":199,"new_this_rotation":true,"band":"192-199","section":"Common Patterns 1 (the, ing, tion)","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CS2 Lvl 4-5","detail":"Parameters: passing values into functions"}},{"rotation":8,"typing":{"lesson_floor":207,"new_this_rotation":true,"band":"200-207","section":"Common Patterns 1 COMPLETE","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"RELAY","name":"Relay Race","points":5,"description":"Teams of 4. Each member types 30 seconds; team score is combined adjusted WPM. Slowest typist matters as much as the fastest."},"coding":{"target":"CS2 Lvl 6-7","detail":"Return values: functions that give back a result"}},{"rotation":9,"typing":{"lesson_floor":216,"new_this_rotation":true,"band":"208-216","section":"Basic Level 2 - mixed topics","flag":"new"},"wpm_goal":28,"accuracy_goal":91,"checkin":{"code":"GRADED_MID","name":"GRADED Typing Test - Midquarter","points":50,"description":"Formal 3-min test. Graded on adjusted WPM + accuracy against the rotation goal. 10 pt deduction for incorrect form (hunt-and-peck, wrong fingers, looking down)."},"coding":{"target":"CS2 Lvl 8-9","detail":"While loops + functions together"}},{"rotation":10,"typing":{"lesson_floor":225,"new_this_rotation":true,"band":"217-225","section":"Basic Level 2 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CS2 Lvl 10-11","detail":"Conditionals inside functions"}},{"rotation":11,"typing":{"lesson_floor":233,"new_this_rotation":true,"band":"226-233","section":"Basic Level 2 COMPLETE","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"BLIND","name":"Blind Draw","points":5,"description":"Sticky note over the on-screen keyboard hint (or eyes up on the projector). Proves you are actually touch typing instead of reading the guide."},"coding":{"target":"CS2 Lvl 12","detail":"String manipulation + first look at arrays"}},{"rotation":12,"typing":{"lesson_floor":240,"new_this_rotation":true,"band":"234-240","section":"Tricky Words 2 - confused words","flag":"new"},"wpm_goal":29,"accuracy_goal":92,"checkin":{"code":"PREDICT","name":"Predict & Prove","points":5,"description":"Write your predicted WPM BEFORE the test. Scored on how close your prediction was, not how fast you typed. Rewards knowing yourself."},"coding":{"target":"CS2 Lvl 13-14","detail":"Arrays: storing and indexing multiple values"}},{"rotation":13,"typing":{"lesson_floor":247,"new_this_rotation":true,"band":"241-247","section":"NUMBERS BEGIN (4 and 7)","flag":"warn"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"NUMBERBOSS","name":"Number Row Boss","points":5,"description":"Number-row-only drill. Expect your WPM to fall off a cliff - that is normal and it is why we practice numbers separately."},"coding":{"target":"CS2 Lvl 15-16","detail":"For loops: index-driven iteration"}},{"rotation":14,"typing":{"lesson_floor":253,"new_this_rotation":true,"band":"248-253","section":"Numbers: 3 8 2 9","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CS2 Lvl 17-18","detail":"Objects + dot notation (hero.health, enemy.type)"}},{"rotation":15,"typing":{"lesson_floor":259,"new_this_rotation":true,"band":"254-259","section":"Numbers: 1 0 5 6","flag":"new"},"wpm_goal":30,"accuracy_goal":92,"checkin":{"code":"GAUNTLET","name":"Accuracy Gauntlet","points":5,"description":"3-min run at ANY speed you want - but every error costs. 100% accuracy = full credit regardless of WPM. Teaches that clean beats fast."},"coding":{"target":"CS2 Lvl 19-20 GRADED","detail":"Full CS2 toolkit. Progress check to Canvas."}},{"rotation":16,"typing":{"lesson_floor":266,"new_this_rotation":true,"band":"260-266","section":"Numbers practice","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"STREAK","name":"Streak Check","points":5,"description":"Did you log typing practice in every rotation this cycle? Consistency credit - rewards showing up, not raw talent."},"coding":{"target":"CS2 Arena GRADED","detail":"Final attempt. Screenshot to Canvas."}},{"rotation":17,"typing":{"lesson_floor":274,"new_this_rotation":true,"band":"267-274","section":"NUMBERS COMPLETE - halfway point","flag":"milestone"},"wpm_goal":31,"accuracy_goal":92,"checkin":{"code":"DATASTORY","name":"Data Story","points":10,"description":"Chart your own WPM + accuracy across the quarter in Google Sheets, then write 2 sentences: what the trend shows and what you will change. Ties directly to the spreadsheet unit."},"coding":{"target":"Portfolio Day GRADED","detail":"Curate CS1 Arena + CS2 Arena + Tabula Rasa into one submission"}},{"rotation":18,"typing":{"lesson_floor":274,"new_this_rotation":false,"band":"hold at 274","section":"No new lessons - speed consolidation","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"GD1 Showcase","detail":"Play classmates' games; star/wish sticky-note feedback"}},{"rotation":19,"typing":{"lesson_floor":274,"new_this_rotation":false,"band":"hold at 274","section":"No new lessons - Q2 Final Assessment","flag":"hold"},"wpm_goal":32,"accuracy_goal":92,"checkin":{"code":"GRADED_FINAL","name":"GRADED Typing Test - Quarter Final","points":100,"description":"Formal 5-min benchmark test. This is the quarter grade. Adjusted WPM + accuracy vs. the quarter target. 10 pt deduction for incorrect form."},"coding":{"target":"(no coding)","detail":"Full rotation: Q2 Typing Final + Start-Up Challenge presentations"}},{"rotation":20,"typing":{"lesson_floor":274,"new_this_rotation":false,"band":"hold at 274","section":"Catch-up + semester close","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Bridge to AI","detail":"What is AI? How it differs from the if/else logic you wrote. Q3 preview."}}]},{"quarter":3,"name":"Quarter 3 - Think Like a Coder","typing_range":"Lessons 275-346","wpm_arc":"32 -> 38 WPM","accuracy_target":94,"coding_arc":"CodeCombat AI HackStack + AI Hackathon","rotations":[{"rotation":1,"typing":{"lesson_floor":279,"new_this_rotation":true,"band":"1-279","section":"Common Patterns 2 (eal, ate, ound)","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"AI HackStack setup","detail":"Accounts + prompt budget rules. What is AI, really?"}},{"rotation":2,"typing":{"lesson_floor":285,"new_this_rotation":true,"band":"280-285","section":"Common Patterns 2 COMPLETE","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"PR","name":"Beat Your PR","points":5,"description":"1-min test. Full credit for beating your own Personal Record by any amount. Tie your PR = 4 pts. No comparison to classmates, ever."},"coding":{"target":"AI 1: How LLMs work","detail":"Next-token prediction. Why AI 'hallucinates.'"}},{"rotation":3,"typing":{"lesson_floor":290,"new_this_rotation":true,"band":"286-290","section":"Basic Level 3 - longer passages","flag":"new"},"wpm_goal":33,"accuracy_goal":92,"checkin":{"code":"OWNWORDS","name":"Type Your Own Words","points":5,"description":"Type a paragraph YOU wrote (any class, any topic). Real composition speed is different from copy-typing speed - and this is the speed that matters for school."},"coding":{"target":"AI 1: Prompt engineering","detail":"Specific > vague. Draft prompts on PAPER before spending one."}},{"rotation":4,"typing":{"lesson_floor":295,"new_this_rotation":true,"band":"291-295","section":"Basic Level 3 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"AI 1: Bias & ethics","detail":"Where training data bias comes from. Who is responsible for AI output?"}},{"rotation":5,"typing":{"lesson_floor":300,"new_this_rotation":true,"band":"296-300","section":"Basic Level 3 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"BRACKET","name":"Bracket Battle","points":5,"description":"Single-elimination head-to-head races, seeded so similar speeds meet in round 1. Everyone gets at least 2 races. Participation earns full credit."},"coding":{"target":"AI Explorations: Art","detail":"Generate AI art. Compare 3 prompt versions of the same idea."}},{"rotation":6,"typing":{"lesson_floor":306,"new_this_rotation":true,"band":"301-306","section":"Basic Level 3 continued","flag":"new"},"wpm_goal":34,"accuracy_goal":93,"checkin":{"code":"TRADEOFF","name":"Speed vs. Accuracy Lab","points":5,"description":"Two runs: one 'go as fast as you can,' one 'go perfectly clean.' Compare adjusted WPM. Most students discover clean is actually faster."},"coding":{"target":"AI Explorations: Weather app","detail":"Build a working weather app with AI assistance."}},{"rotation":7,"typing":{"lesson_floor":311,"new_this_rotation":true,"band":"307-311","section":"Basic Level 3 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"AI Explorations: Word game","detail":"Design a word search game."}},{"rotation":8,"typing":{"lesson_floor":316,"new_this_rotation":true,"band":"312-316","section":"Basic Level 3 COMPLETE","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"HEATMAP","name":"Heatmap Autopsy","points":5,"description":"Screenshot your TypingClub key-accuracy heatmap. Name your 3 worst keys and write one sentence on how you will fix them. Diagnosis, not speed."},"coding":{"target":"AI Explorations: Simulation","detail":"Simulate a real-world event."}},{"rotation":9,"typing":{"lesson_floor":321,"new_this_rotation":true,"band":"317-321","section":"SYMBOLS BEGIN ($ & # * @)","flag":"warn"},"wpm_goal":35,"accuracy_goal":93,"checkin":{"code":"GRADED_MID","name":"GRADED Typing Test - Midquarter","points":50,"description":"Formal 3-min test. Graded on adjusted WPM + accuracy against the rotation goal. 10 pt deduction for incorrect form (hunt-and-peck, wrong fingers, looking down)."},"coding":{"target":"HACKATHON LAUNCH","detail":"Teams of 3. Challenge prompt revealed. Rules + rubric + judging criteria."}},{"rotation":10,"typing":{"lesson_floor":326,"new_this_rotation":true,"band":"322-326","section":"Symbols: ( ! ) % ^","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"SYMBOL","name":"Symbol Scramble","points":5,"description":"Symbol-heavy passage. Direct prep for typing real code, where a single wrong bracket breaks the whole program."},"coding":{"target":"Sprint 0: Plan","detail":"Problem statement + paper prototype + written prompt budget plan. No AI yet."}},{"rotation":11,"typing":{"lesson_floor":331,"new_this_rotation":true,"band":"327-331","section":"Symbols practice","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Sprint 1: Build","detail":"First working piece. Log every prompt used."}},{"rotation":12,"typing":{"lesson_floor":336,"new_this_rotation":true,"band":"332-336","section":"Symbols continued","flag":"new"},"wpm_goal":36,"accuracy_goal":94,"checkin":{"code":"CODETYPE","name":"Code Type Challenge","points":5,"description":"Type actual Python from your CodeCombat levels. Indentation, colons, parentheses all count. Where typing class and coding class finally shake hands."},"coding":{"target":"Sprint 2: Build","detail":"Core feature working."}},{"rotation":13,"typing":{"lesson_floor":341,"new_this_rotation":true,"band":"337-341","section":"Symbols continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"ENDURANCE","name":"Endurance Run","points":5,"description":"5-minute continuous test instead of 1 minute. Stamina, not sprinting - closer to what a real essay or timed test demands."},"coding":{"target":"Sprint 3: Checkpoint","detail":"2-min informal demo to one other team. Written feedback exchanged."}},{"rotation":14,"typing":{"lesson_floor":346,"new_this_rotation":true,"band":"342-346","section":"SYMBOLS COMPLETE","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Sprint 4: Build","detail":"Act on checkpoint feedback."}},{"rotation":15,"typing":{"lesson_floor":346,"new_this_rotation":false,"band":"hold at 346","section":"No new lessons - symbol accuracy","flag":"hold"},"wpm_goal":37,"accuracy_goal":94,"checkin":{"code":"BOSS","name":"The Boss Fight","points":5,"description":"Teacher types live on the projector. Class average vs. teacher WPM. If the class wins, the class picks the next check-in format."},"coding":{"target":"Sprint 5: Build","detail":"Feature freeze at end of rotation. No new features after this."}},{"rotation":16,"typing":{"lesson_floor":346,"new_this_rotation":false,"band":"hold at 346","section":"No new lessons - Dynamic Lessons","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"COMEBACK","name":"Best of Three","points":5,"description":"Three attempts, highest one counts. Removes the one-shot anxiety and rewards persistence."},"coding":{"target":"Polish","detail":"Bug fixes + demo script written. Every member has a speaking part."}},{"rotation":17,"typing":{"lesson_floor":346,"new_this_rotation":false,"band":"hold at 346","section":"No new lessons - speed work","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"DATASTORY","name":"Data Story","points":10,"description":"Chart your own WPM + accuracy across the quarter in Google Sheets, then write 2 sentences: what the trend shows and what you will change. Ties directly to the spreadsheet unit."},"coding":{"target":"Dress rehearsal","detail":"Full run-through timed to 4 min. Peer feedback round."}},{"rotation":18,"typing":{"lesson_floor":346,"new_this_rotation":false,"band":"hold at 346","section":"No new lessons - Demo Day week","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"DEMO DAY GRADED","detail":"4-min demo + 2-min Q&A. PVLEGS rubric active."}},{"rotation":19,"typing":{"lesson_floor":346,"new_this_rotation":false,"band":"hold at 346","section":"No new lessons - Q3 Final Assessment","flag":"hold"},"wpm_goal":38,"accuracy_goal":94,"checkin":{"code":"GRADED_FINAL","name":"GRADED Typing Test - Quarter Final","points":100,"description":"Formal 5-min benchmark test. This is the quarter grade. Adjusted WPM + accuracy vs. the quarter target. 10 pt deduction for incorrect form."},"coding":{"target":"Judging + awards","detail":"Categories: Most Useful, Most Creative, Best Prompt Craft, Best Teamwork."}},{"rotation":20,"typing":{"lesson_floor":346,"new_this_rotation":false,"band":"hold at 346","section":"Catch-up + quarter close","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Reflection","detail":"Prompt log analysis: which prompts worked and why? Q4 preview."}}]},{"quarter":4,"name":"Quarter 4 - Make Your Mark","typing_range":"Lessons 347-388+","wpm_arc":"38 -> 45 WPM","accuracy_target":95,"coding_arc":"AI HackStack 2 + Student Capstone","rotations":[{"rotation":1,"typing":{"lesson_floor":350,"new_this_rotation":true,"band":"1-350","section":"Common Patterns 3 (own, ill, eed)","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Cybersecurity + AI","detail":"How attackers use AI; how defenders use AI."}},{"rotation":2,"typing":{"lesson_floor":353,"new_this_rotation":true,"band":"351-353","section":"Common Patterns 3 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"PR","name":"Beat Your PR","points":5,"description":"1-min test. Full credit for beating your own Personal Record by any amount. Tie your PR = 4 pts. No comparison to classmates, ever."},"coding":{"target":"Cybersecurity + AI","detail":"Phishing detection lab. Spot the AI-generated scam."}},{"rotation":3,"typing":{"lesson_floor":357,"new_this_rotation":true,"band":"354-357","section":"Common Patterns 3 COMPLETE","flag":"milestone"},"wpm_goal":39,"accuracy_goal":94,"checkin":{"code":"BLIND","name":"Blind Draw","points":5,"description":"Sticky note over the on-screen keyboard hint (or eyes up on the projector). Proves you are actually touch typing instead of reading the guide."},"coding":{"target":"Career Readiness 1","detail":"AI in the workplace: which tasks change, which do not."}},{"rotation":4,"typing":{"lesson_floor":361,"new_this_rotation":true,"band":"358-361","section":"Advanced Level 1 - long passages","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Career Readiness 1","detail":"Build an AI-assisted resume. Then critique what AI got wrong about you."}},{"rotation":5,"typing":{"lesson_floor":365,"new_this_rotation":true,"band":"362-365","section":"Advanced Level 1 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"CODETYPE","name":"Code Type Challenge","points":5,"description":"Type actual Python from your CodeCombat levels. Indentation, colons, parentheses all count. Where typing class and coding class finally shake hands."},"coding":{"target":"Algebra + AI","detail":"Cross-curricular: AI as a math reasoning partner (and where it fails)."}},{"rotation":6,"typing":{"lesson_floor":369,"new_this_rotation":true,"band":"366-369","section":"Advanced Level 1 continued","flag":"new"},"wpm_goal":40,"accuracy_goal":94,"checkin":{"code":"RELAY","name":"Relay Race","points":5,"description":"Teams of 4. Each member types 30 seconds; team score is combined adjusted WPM. Slowest typist matters as much as the fastest."},"coding":{"target":"AI 2","detail":"Advanced prompting: chaining, roles, constraints."}},{"rotation":7,"typing":{"lesson_floor":373,"new_this_rotation":true,"band":"370-373","section":"Advanced Level 1 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CAPSTONE LAUNCH","detail":"Student choice: solve a real problem at MCA. Proposal due end of rotation."}},{"rotation":8,"typing":{"lesson_floor":377,"new_this_rotation":true,"band":"374-377","section":"Advanced Level 1 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"PREDICT","name":"Predict & Prove","points":5,"description":"Write your predicted WPM BEFORE the test. Scored on how close your prediction was, not how fast you typed. Rewards knowing yourself."},"coding":{"target":"Capstone Sprint 1","detail":"Proposal approved. Build begins."}},{"rotation":9,"typing":{"lesson_floor":381,"new_this_rotation":true,"band":"378-381","section":"Advanced Level 1 continued","flag":"new"},"wpm_goal":41,"accuracy_goal":95,"checkin":{"code":"GRADED_MID","name":"GRADED Typing Test - Midquarter","points":50,"description":"Formal 3-min test. Graded on adjusted WPM + accuracy against the rotation goal. 10 pt deduction for incorrect form (hunt-and-peck, wrong fingers, looking down)."},"coding":{"target":"Capstone Sprint 2","detail":"Core build."}},{"rotation":10,"typing":{"lesson_floor":384,"new_this_rotation":true,"band":"382-384","section":"Advanced Level 1 continued","flag":"new"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Capstone Sprint 3","detail":"Core build."}},{"rotation":11,"typing":{"lesson_floor":388,"new_this_rotation":true,"band":"385-388","section":"ADVANCED LEVEL 1 COMPLETE - YEAR TARGET","flag":"milestone"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"GAUNTLET","name":"Accuracy Gauntlet","points":5,"description":"3-min run at ANY speed you want - but every error costs. 100% accuracy = full credit regardless of WPM. Teaches that clean beats fast."},"coding":{"target":"Capstone Sprint 4","detail":"Checkpoint demo to teacher. Written feedback."}},{"rotation":12,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Stretch: More Symbols (389+) optional","flag":"hold"},"wpm_goal":42,"accuracy_goal":95,"checkin":{"code":"ENDURANCE","name":"Endurance Run","points":5,"description":"5-minute continuous test instead of 1 minute. Stamina, not sprinting - closer to what a real essay or timed test demands."},"coding":{"target":"Capstone Sprint 5","detail":"Revision based on feedback."}},{"rotation":13,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Dynamic Lessons + speed work","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"STREAK","name":"Streak Check","points":5,"description":"Did you log typing practice in every rotation this cycle? Consistency credit - rewards showing up, not raw talent."},"coding":{"target":"Capstone Sprint 6","detail":"Build continues."}},{"rotation":14,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Dynamic Lessons + speed work","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Capstone Sprint 7","detail":"Feature freeze. Begin write-up."}},{"rotation":15,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Dynamic Lessons + speed work","flag":"hold"},"wpm_goal":43,"accuracy_goal":95,"checkin":{"code":"BOSS","name":"The Boss Fight","points":5,"description":"Teacher types live on the projector. Class average vs. teacher WPM. If the class wins, the class picks the next check-in format."},"coding":{"target":"Capstone polish","detail":"Testing + documentation."}},{"rotation":16,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Portfolio week - maintain only","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"DATASTORY","name":"Data Story","points":10,"description":"Chart your own WPM + accuracy across the quarter in Google Sheets, then write 2 sentences: what the trend shows and what you will change. Ties directly to the spreadsheet unit."},"coding":{"target":"Portfolio assembly","detail":"Year-long portfolio: CS1, CS2, GD1, HackStack, Capstone."}},{"rotation":17,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Capstone week - maintain only","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":{"code":"OWNWORDS","name":"Type Your Own Words","points":5,"description":"Type a paragraph YOU wrote (any class, any topic). Real composition speed is different from copy-typing speed - and this is the speed that matters for school."},"coding":{"target":"Portfolio + rehearsal","detail":"Portfolio submitted. Presentation rehearsal."}},{"rotation":18,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Capstone week - maintain only","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"CAPSTONE PRESENTATIONS GRADED","detail":"Present to class. PVLEGS rubric."}},{"rotation":19,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"YEAR-END FINAL ASSESSMENT","flag":"hold"},"wpm_goal":45,"accuracy_goal":95,"checkin":{"code":"GRADED_FINAL","name":"GRADED Typing Test - Quarter Final","points":100,"description":"Formal 5-min benchmark test. This is the quarter grade. Adjusted WPM + accuracy vs. the quarter target. 10 pt deduction for incorrect form."},"coding":{"target":"Year-End Showcase","detail":"Open house format. Families/other classes invited if possible."}},{"rotation":20,"typing":{"lesson_floor":388,"new_this_rotation":false,"band":"hold at 388","section":"Celebration + portfolio submission","flag":"hold"},"wpm_goal":null,"accuracy_goal":null,"checkin":null,"coding":{"target":"Celebration + reflection","detail":"'I used to think... now I think...' Year closes."}}]}];
+const rotationsQ1 = [
+  {r:1, dates:"Aug 11–14", summary:"Syllabus, procedures, and typing signup", typing:`Setup day — sign students up for ${link(L.typingClub,"Typing Club")} / Typing Jungle; unlock lessons 1–25. 🏆 BASELINE Typing Test (ungraded) — max 30 min, no pressure, teacher paces the room. ${link(L.testText,"Link to Test Text")}`, coding:null,
+   activities:[`${link(L.syllabus,"Syllabus")} overview (top of Canvas)`, `${link(L.slides,"Classroom Procedures Slides")}`, `Procedures &amp; ${link(L.gimkit,"Policies Gimkit")}`, "Fill time: discussion / co-teacher activity"], tags:["graded-ungraded"]},
+  {r:2, dates:"Aug 14–19", summary:"Baseline typing test + printing basics", typing:"Continue lessons 1–25 — no new unlock.", coding:null,
+   activities:["Finish Classroom Procedures", "Demonstrate laptop stands &amp; keyboards", `Show students how to use ${link(L.typingClub,"Typing Club")}`, "Install library printers", `Explain ${link(L.printAssign,"Printing Etiquette Assignment")}: ${link(L.printWorksheet,"Printing Etiquette Worksheet")}`, "HW: Printing Homework"], tags:[]},
+  {r:3, dates:"Aug 19–21", summary:"Email etiquette + CS1 coding begins", goal:"10 WPM / 70% accuracy", typing:"Unlock Typing Jungle to lesson 50.",
+   coding:{track:"cs1", level:"Lvl 1–2", due:"Aug 21", focus:"Setup + basic movement: hero.moveRight/Left/Up/Down; code editor orientation.", ff:"Lvl 3–4", milestone:"Account + Lvl 1 done"},
+   activities:[`Email Etiquette — ${link(L.emailVideo,"watch video")}, review bad email examples`, "Rewrite a bad email → submit Canvas (graded)", "Set up email signatures", "Canvas Scavenger Hunt"], tags:["goal"]},
+  {r:4, dates:"Aug 21–26", summary:"Grade Sheets, planner intro, TikTok assignment", typing:"Continue lessons 25–50 — no new unlock. Students becoming self-sufficient with stands/keyboards.",
+   coding:{track:"cs1", level:"Lvl 3–7", due:"Aug 26", focus:"Movement patterns + Python syntax (Lvl 3–5); variables, hero.attack(enemy) (Lvl 6–7).", ff:"Lvl 8–9", milestone:"Lvls 3–7 done"},
+   activities:[`${link(L.gradeSheet,"Grade Sheet Tracking Lesson 1")} — Google Sheets basics`, `${link(L.plannerIntro,"Planner Organization intro")} (monthly/weekly/back pages)`, `Introduce ${link(L.tiktokAssign,"TikTok/Reel assignment")} + script`, "📊 Typing Check-in #1 (5 pts) — 1-min test screenshot to Canvas"], tags:["checkin"]},
+  {r:5, dates:"Aug 26–28", summary:"Grade Sheets + TikTok script writing", goal:"12 WPM / 75% accuracy", typing:"Unlock Typing Jungle to lesson 80.",
+   coding:{track:"cs1", level:"Lvl 8–11", due:"Aug 28", focus:"Strings, hero.say(), item targeting (Lvl 8–10); while loop intro (Lvl 11).", ff:"Lvl 12–13", milestone:"Lvls 8–11 done"},
+   activities:[`${link(L.gradeSheet,"Grade Sheet Tracking Lesson 2")}`, `${link(L.tiktokFolder,"Work time: Planner TikTok script writing")}`], tags:["goal"]},
+  {r:6, dates:"Aug 28–Sep 2", summary:"Grade Sheets, Tinker Mentality, Drawing Activity", typing:"Continue lessons 50–80 — no new unlock.",
+   coding:{track:"cs1", level:"Lvl 12–15", due:"Sep 2", focus:"While loops (Lvl 11–13); while + conditions, findNearest() (Lvl 14–15).", ff:"Lvl 16–17", milestone:"Lvls 12–15 done"},
+   activities:[`${link(L.gradeSheet,"Grade Sheet Tracking Lesson 3")}`, "Tinker Mentality intro (curiosity, failure, problem-solving)", `${link(L.drawingActivity,"Drawing Activity")}`, "📊 Typing Check-in #2 (5 pts) — note improvement from #1"], tags:["checkin"]},
+  {r:7, dates:"Sep 2–4", summary:"Finish Drawing Activity + Grade Sheets", goal:"14 WPM / 75% accuracy", typing:"Unlock Typing Jungle to lesson 110.",
+   coding:{track:"cs1", level:"Lvl 16–18", due:"Sep 4", focus:"More loop conditions (Lvl 16–17); if statements intro (Lvl 18).", ff:"Lvl 19–20", milestone:"Lvls 16–18 done"},
+   activities:[`Finish ${link(L.drawingActivity,"Drawing Activity")} if needed`, `${link(L.gradeSheet,"Grade Sheet Tracking Lesson 4")}`], tags:["goal"]},
+  {r:8, dates:"Sep 3–4", summary:"Google Drive Escape Room + Women in STEM", typing:"Continue lessons 80–110 — no new unlock.",
+   coding:{track:"cs1", level:"Lvl 19–21", due:"Sep 4", focus:"If/else — choose between two actions based on a condition.", ff:"Lvl 22–23", milestone:"Lvls 19–21 done"},
+   activities:[`${link(L.escapeRoom,"Google Drive Organization Escape Room")} (ZIP → Drive → find the code)`, `${link(L.womenInStem,"Women in STEM")} + PVLEGS intro &amp; workday`, "📊 Typing Check-in #3 (5 pts)"], tags:["checkin"]},
+  {r:9, dates:"Sep 4–6", summary:"Women in STEM workday + graded typing test", goal:"15 WPM / 80% accuracy", typing:"Unlock Typing Jungle to lesson 130. 🏆 Typing Assessment #1 (graded), rubric on Canvas.",
+   coding:{track:"cs1", level:"Lvl 22–24", due:"Sep 6", focus:"Combining loops + conditionals; hero adapts to different enemy types.", ff:"Arena attempt", milestone:"Lvls 22–24 done"},
+   activities:[`${link(L.gradeSheet,"Google Sheets Lesson 5")}`, `${link(L.womenInStem,"Women in STEM")} workday &amp; presentation prep`], tags:["goal","graded"]},
+  {r:10, dates:"Sep 8–10", summary:"Google Sheets Lesson 5 + Women in STEM", typing:"Continue lessons 110–130 — no new unlock.",
+   coding:{track:"cs1", level:"Arena", due:"Sep 10", focus:"CS1 Arena — apply all concepts; this is supposed to be hard.", ff:"GD1 Lvl 1", milestone:"Arena attempt logged"},
+   activities:[`${link(L.womenInStem,"Women in STEM")} work time`, "📊 Typing Check-in #4 (5 pts) — reflect: 'Am I on track for my goal?'"], tags:["checkin"]},
+  {r:11, dates:"Sep 10–11", summary:"Women in STEM presentations", goal:"16 WPM / 80% accuracy", typing:"Unlock Typing Jungle to lesson 145.",
+   coding:{track:"cs1", level:"Arena", due:"Sep 11", focus:"Arena continued / polish — catch-up rotation for anyone behind on Lvl 20–24.", ff:"GD1 Lvl 1–2", milestone:"Arena progress noted"},
+   activities:[`${link(L.womenInStem,"Women in STEM")} Presentations — full period, PVLEGS rubric active`, `If time: introduce ${link(L.gradeTracker,"Grade Tracker")} (CDD, English, Religion)`], tags:["goal"]},
+  {r:12, dates:"Sep 15–17", summary:"Graded Typing Test 1 + Grade Tracker setup", typing:"Continue lessons 130–145 — no new unlock. 🏆 Typing Test 1 (GRADED) — Goal: 16 WPM / 80% accuracy.",
+   coding:{track:"cs1", level:"Arena ✓", due:"Sep 17", focus:"CS1 Arena — must complete best attempt this rotation.", ff:"GD1 Lvl 2–3", milestone:"★ CS1 Arena screenshot → Canvas", graded:true},
+   activities:["Introduce Grade Tracker in detail (as taught in level meeting)", "Set up tracker for CDD, English, Religion — submit Canvas link, share as editor", "⚠️ PAUSE — do not move on until Grade Tracker is submitted"], tags:["graded"]},
+  {r:13, dates:"Sep 17–19", summary:"Grade Tracker + Simple Outline notes", goal:"17 WPM / 80% accuracy", typing:"Unlock Typing Jungle to lesson 150 — Q1 lesson ceiling. 📊 Check-in #5 (5 pts, halfway through the quarter!).",
+   coding:{track:"gd1", level:"Lvl 1", due:"Sep 19", focus:"GD1 intro: coordinate grid; placing first game elements; play Level 1 together.", ff:"Lvl 2", milestone:"GD1 Lvl 1 done"},
+   activities:[`${link(L.gradeTracker,"Grade Tracker")} time if still needed`, `${link(L.simpleOutlineIntro,"Simple Outline Notes")} — summarizing vs. paraphrasing`, `${link(L.simpleOutlinePractice,"Simple Outline Practice")} — students outline based off of a movie, submit PDF (10 pts)`], tags:["checkin","goal"]},
+  {r:14, dates:"Sep 19–23", summary:"Simple Outline + Computer Parts Notes", typing:"Speed drills at lesson 150 — no new lessons; focus shifts to building WPM.",
+   coding:{track:"gd1", level:"Lvl 2–3", due:"Sep 23", focus:"Placing walls, floors, traps; understanding how the grid maps to code.", ff:"Lvl 4", milestone:"Lvls 2–3 done"},
+   activities:[`Finish ${link(L.simpleOutlinePractice,"Simple Outline activity")} if needed`, `${link(L.computerPartsNotes,"Computer Parts Notes")} (Simple Outline format, 3-layer structure — go slowly, may spill into R15)`], tags:[]},
+  {r:15, dates:"Sep 23–24", summary:"Finish Computer Parts Notes", goal:"18 WPM / 80% accuracy", typing:"Speed drills at lesson 150. 📊 Check-in #6 (5 pts) — discuss WPM growth.",
+   coding:{track:"gd1", level:"Lvl 4–5", due:"Sep 24", focus:"Spawning: coins + enemies; game.spawnXY(); intro to game events.", ff:"Lvl 6", milestone:"Lvls 4–5 done"},
+   activities:[`Finish ${link(L.computerPartsNotes,"Computer Parts Notes")}`, "Walk through completed notes as a class"], tags:["checkin","goal"]},
+  {r:16, dates:"Sep 25–26", summary:"Work &amp; catch-up day", typing:"Speed drills at lesson 150.",
+   coding:{track:"gd1", level:"Lvl 6–7", due:"Sep 26", focus:"Win/lose conditions: game.addManualGoalTrigger(); making a game actually winnable.", ff:"Lvl 8", milestone:"Lvls 6–7 done"},
+   activities:["Work and catch-up day — this is from last year; if you don't need a catch-up day, feel free to move on now that we have a STEAM lab"], tags:[]},
+  {r:17, dates:"Sep 26–30", summary:"Mind Map + intro to Cricut", goal:"19 WPM / 80% accuracy", typing:"Speed drills at lesson 150. 📊 Check-in #7 (5 pts) — students project end-of-quarter WPM.",
+   coding:{track:"gd1", level:"Lvl 8–9", due:"Sep 30", focus:"Time-based spawning: game.time; difficulty pacing over time.", ff:"Lvl 10", milestone:"Lvls 8–9 done"},
+   activities:[`${link(L.mindMapNotes,"Mind Map Notes")} intro + activity (last slide has the activity)`, `${link(L.cricut,"Introduce Cricut")} — design in Canva first, then download to Cricut`], tags:["checkin","goal"]},
+  {r:18, dates:"Oct 1–2", summary:"Cricut continued", typing:"Speed drills at lesson 150.",
+   coding:{track:"gd1", level:"Lvl 10–11", due:"Oct 2", focus:"Game UI: score display, timers; hero.addMoveGoalPos(); polish.", ff:"Lvl 12", milestone:"Lvls 10–11 done"},
+   activities:[`${link(L.cricut,"Cricut continued")} — digital workflow, then physical cutting`], tags:[]},
+  {r:19, dates:"Oct 2–6", summary:"Graded Typing Final + Work/Print Day", goal:"20 WPM / 80% accuracy", typing:"🏆 Q1 Typing Final (GRADED) — all lessons through lesson 150 required.",
+   coding:{track:"gd1", level:"Lvl 12–13", due:"Oct 6", focus:"Branching events: if statements inside game loops; changing game state.", ff:"Lvl 14–15", milestone:"Lvls 12–13 done"},
+   activities:[`${link(L.workDayPrintDay,"Work Day + Print Day")} (Cricut prints &amp; projects)`], tags:["goal","graded"]},
+  {r:20, dates:"Oct 6–7", summary:"Work/Print Day + Computer Parts review", typing:"Wrap-up / catch-up — lesson 150 required.",
+   coding:{track:"gd1", level:"Lvl 14–16", due:"Oct 7", focus:"Playable hero control: adding characters; Q2 final project preview.", ff:"Lvl 17", milestone:"Lvls 14–16 done — Q1 ends"},
+   activities:[`${link(L.workDayPrintDay,"Work Day + Print Day")}`, "Computer Parts review", "📊 Typing Check-in #8 (completion check) — confirm all students reached lesson 150"], tags:["checkin"]},
+];
 
-// --- Placeholder rotation-to-date generator ---
-// Real 2026-27 rotation dates have not been provided yet. These are evenly-spaced
-// placeholder weekday blocks anchored to each quarter's stated month range, so the
-// calendar renders correctly today. Replace QUARTER_START below once the school's
-// official 2026-27 calendar gives real rotation dates.
-const QUARTER_START = {
-  1: new Date(2026, 7, 24),  // Q1: placeholder start — Mon Aug 24, 2026
-  2: new Date(2026, 9, 26),  // Q2: placeholder start — Mon Oct 26, 2026
-  3: new Date(2027, 0, 11),  // Q3: placeholder start — Mon Jan 11, 2027
-  4: new Date(2027, 2, 22),  // Q4: placeholder start — Mon Mar 22, 2027
-};
-function isWeekday(d){ const dow = d.getDay(); return dow !== 0 && dow !== 6; }
-function nextWeekday(d){ let x = new Date(d); while(!isWeekday(x)) x.setDate(x.getDate() + 1); return x; }
-function addWeekdays(d, n){ let x = new Date(d); let added = 0; while(added < n){ x.setDate(x.getDate() + 1); if(isWeekday(x)) added++; } return x; }
-function genRotationDates(startDate){
-  const out = [];
-  let cursor = nextWeekday(startDate);
-  for(let i = 0; i < 20; i++){
-    const s = new Date(cursor);
-    const e = addWeekdays(cursor, 1);
-    out.push({start: s, end: e});
-    cursor = addWeekdays(cursor, 2);
-  }
-  return out;
+const rotationsQ2 = [
+  {r:1, dates:"Oct 9–14", summary:"Mind Map wrap-up + Q2 Grade Sheet setup", goal:"WPM goal TBD", typing:"Unlock Typing Jungle to lesson 165; remind students that 150 was the Q1 due point.",
+   coding:{track:"gd1", level:"Lvl 16–17", due:"Oct 14", focus:"Finish remaining GD1 guided levels — complex layouts, randomized spawns. Begin thinking about your original game concept.", ff:"Start Tabula Rasa design doc", milestone:"Lvls 16–17 done"},
+   activities:[`${link(L.workDayPrintDay,"Continue Mind Map")} activity — many students still finishing; some may still need Cricut time`, "Students not yet Cricut-ed: help them set a time via email/IS", `Students who are finished: set up ${link(L.gradesheetQ2,"Q2 Grade Sheet")} pages (CDD, English, Religion)`, "📊 Typing Check-in #1 (5 pts) — 1-min test screenshot; note Q1 ending WPM as baseline"], tags:["checkin","goal"]},
+  {r:2, dates:"Oct 15–16", summary:"Finish Mind Map", typing:"Continue lessons 150–165 — no new unlock.",
+   coding:{track:"gd1", level:"Tabula Rasa", due:"Oct 16", focus:"Build your original game: choose a setting, place terrain, spawn enemies/coins, add win/lose condition.", ff:"Peer test + get feedback", milestone:"Design started; share link to teacher"},
+   activities:[`${link(L.workDayPrintDay,"Finish Mind Map")} — should wrap up in most classes this rotation`, "Students done early: finalize Q2 Grade Sheet setup; share Canvas link as editor", "Be patient — first time using all these tools; work with students as needed"], tags:[]},
+  {r:3, dates:"Oct 16–20", summary:"Binary Notes + Tabula Rasa game due", goal:"WPM goal TBD", typing:"Unlock Typing Jungle to lesson 180.",
+   coding:{track:"gd1", level:"Final game", due:"Oct 20", focus:"Polish + peer playtesting. A classmate plays your game and leaves written feedback. Final submission due end of rotation.", ff:"Extra level/mechanic", milestone:"★ Tabula Rasa game link + feedback form → Canvas", graded:true},
+   activities:[`${link(L.binaryNotes,"Binary Notes")} — post on Canvas; students who are done or waiting work through this`, "📊 Typing Check-in #2 (5 pts) — 1-min test screenshot to Canvas"], tags:["checkin","goal"]},
+  {r:4, dates:"Oct 20–22", summary:"Computer Parts Lab", typing:"Continue lessons 165–180 — no new unlock.",
+   coding:{track:"cs2", level:"Lvl 1", due:"Oct 22", focus:"Functions intro: what is a function? Why write named blocks of code? First def/call cycle.", ff:"Lvl 2", milestone:"CS2 Lvl 1 done"},
+   activities:[`${link(L.computerPartsLab,"Computer Parts Lab")} — students touch and take apart real desktop computers`, "Walk through the 8 main parts: CPU, Fan, Power Supply, Case, Ports, RAM, Motherboard, Hard Drive", "Note: some donated computers have no hard drive — pass one around", "Split periods: one class labs while the other types + Binary Notes; swap at 35 min"], tags:[]},
+  {r:5, dates:"Oct 22–23", summary:"Computer Parts Lab Practical + graded typing check-in", goal:"WPM goal TBD", typing:"Unlock Typing Jungle to lesson 195. 🏆 Typing Check-in 3 (GRADED) — goal TBD; deduct 10 pts for incorrect typing form.",
+   coding:{track:"cs2", level:"Lvl 2–3", due:"Oct 23", focus:"Defining and calling reusable functions; understanding scope and execution order.", ff:"Lvl 4", milestone:"Lvls 2–3 done"},
+   activities:[`${link(L.computerPartsLabPractical,"Computer Parts Lab Practical")} — small groups (max 8) complete the scavenger hunt in the lab room`, "Students complete summative questions back in the classroom", "Split periods: practical ↔ typing check-in, swap at 35 min"], tags:["goal","graded"]},
+  {r:6, dates:"Oct 24–27", summary:"Code.org Pixelation (Binary → RGB → Hex)", typing:"Continue lessons 180–195 — no new unlock (Pixelation lesson day). Computer Parts Practical make-ups available during typing time.",
+   coding:null, codingNote:"No CodeCombat this rotation — Code.org Pixelation activity (Binary → RGB → Hex). CodeCombat resumes Rotation 7.",
+   activities:["Code.org Pixelation Activity — students join your Code.org class (Canvas → Module 2 → + → External URL)", "Add the 'Pixelation' lesson via Course Catalog (Cmd+F to find it)", "Students work Binary → RGB; when done, toggle Hex to introduce hexadecimal", "📊 Typing Check-in #3 (5 pts) — discuss accuracy vs. speed"], tags:["checkin"]},
+  {r:7, dates:"Oct 27–29", summary:"Branding Lecture + Start-Up Challenge intro", goal:"WPM goal TBD", typing:"Unlock Typing Jungle to lesson 210.",
+   coding:{track:"cs2", level:"Lvl 4–5", due:"Oct 29", focus:"Parameters: passing values into functions to make them flexible and reusable.", ff:"Lvl 6", milestone:"Lvls 4–5 done"},
+   activities:[`${link(L.brandingSlides,"Branding Lecture")} — discussion; goal is student buy-in for the Start-Up Challenge`, `${link(L.brandingVideo,"Watch the Branding video")} — preview beforehand so you can add commentary`, "Introduce Binary Homework (Kyle's binary quiz assignment) — assign on Canvas; work time for rest of class"], tags:["goal"]},
+  {r:8, dates:"Oct 29–31", summary:"Color Picker Scavenger Hunt + Binary Quiz", typing:"Continue lessons 195–210 — no new unlock.",
+   coding:{track:"cs2", level:"Lvl 6–7", due:"Oct 31", focus:"Return values: functions that calculate a result and give it back.", ff:"Lvl 8", milestone:"Lvls 6–7 done"},
+   activities:[`${link(L.brandingSlides,"Finish Branding Slides")} if needed`, `${link(L.colorPickerHunt,"Color Picker Scavenger Hunt")} — guess brand colors, verify with eyedropper, complete reflection questions`, "Work on Binary Quiz (homework)", "📊 Typing Check-in #4 (5 pts) — 1-min test screenshot to Canvas"], tags:["checkin"]},
+  {r:9, dates:"Oct 31–Nov 1", summary:"Start-Up Challenge: Step 1 Brainstorm", goal:"WPM goal TBD", typing:"Unlock Typing Jungle to lesson 225.",
+   coding:{track:"cs2", level:"Lvl 8–9", due:"Nov 1", focus:"While loops + functions together: reusable logic that repeats. Concepts stack here — slow down if needed.", ff:"Lvl 10", milestone:"Lvls 8–9 done"},
+   activities:[`${link(L.startupChallenge,"Introduce The Start-Up Challenge (DCE)")} — full overview + all steps`, "Make groups today", "Work time: Step 1 Brainstorm — think of a real-world problem to solve; fill out brainstorm worksheet", "📊 Typing Check-in #5 (5 pts) — halfway through Q2!"], tags:["checkin","goal"]},
+  {r:10, dates:"Nov 3–5", summary:"Step 1: interviews + submission", typing:"Continue lessons 210–225 — no new unlock.",
+   coding:{track:"cs2", level:"Lvl 10–11", due:"Nov 5", focus:"Conditionals inside functions: smarter decisions baked into reusable named blocks.", ff:"Lvl 12", milestone:"Lvls 10–11 done"},
+   activities:[`${link(L.startupChallenge,"Step 1 continued")} — interview worksheet (3+ different people); record findings`, `${link(L.startupChallenge,"Step 1 submission")} — finalize brainstorm + interview findings, submit to Canvas`], tags:[]},
+  {r:11, dates:"Nov 5–7", summary:"Step 2: Initial Mock-Up", goal:"WPM goal TBD", typing:"Unlock Typing Jungle to lesson 240 — Q2 lesson ceiling.",
+   coding:{track:"cs2", level:"Lvl 12", due:"Nov 7", focus:"String manipulation + first look at arrays. One level is the target — it is a big concept jump.", ff:"Lvl 13", milestone:"Lvl 12 done"},
+   activities:[`${link(L.startupChallenge,"Step 2")} — Initial Mock-Up: 1-page proposal (Why/What/How) + rough sketches`, "Remind students: visuals should match written explanation; rough drawings are fine", "📊 Typing Check-in #6 (5 pts) — 1-min test screenshot"], tags:["checkin","goal"]},
+  {r:12, dates:"Nov 10–12", summary:"Step 2 due + Step 3: Design a Company", typing:"Continue lessons 225–240 — no new unlock.",
+   coding:{track:"cs2", level:"Lvl 13–14", due:"Nov 12", focus:"Arrays: storing multiple values, accessing by index, looping through a list of enemies or items.", ff:"Lvl 15", milestone:"Lvls 13–14 done"},
+   activities:[`${link(L.startupChallenge,"Step 2 finalized")} — submit proposal + sketches to Canvas`, `${link(L.startupChallenge,"Step 3")} — Design a Company: name, motto/slogan, mission statement, color scheme (2–3 colors)`, "Discuss color psychology briefly: blue=trust, red=energy, green=nature, yellow=happiness"], tags:[]},
+  {r:13, dates:"Nov 12–14", summary:"Step 3 due + Step 4: Digital Brand Board", goal:"WPM goal TBD", typing:"Speed drills at lesson 240.",
+   coding:{track:"cs2", level:"Lvl 15–16", due:"Nov 14", focus:"For loops: controlled, index-driven iteration through arrays.", ff:"Lvl 17", milestone:"Lvls 15–16 done"},
+   activities:[`${link(L.startupChallenge,"Step 3 finalized")} — submit company identity elements to Canvas`, `${link(L.startupChallenge,"Step 4")} — Digital Brand Board in Canva: name, motto, mission, 3 logo versions, fonts, HEX palette, promo item`, "All on one page — professional and creative; download as PDF", "📊 Typing Check-in #7 (5 pts) — discuss WPM growth from start of Q2"], tags:["checkin","goal"]},
+  {r:14, dates:"Nov 17–19", summary:"Step 4 work time + begin Step 5", typing:"Speed drills at lesson 240.",
+   coding:{track:"cs2", level:"Lvl 17–18", due:"Nov 19", focus:"Objects + dot notation: accessing properties of structured data (hero.health, enemy.type).", ff:"Lvl 19", milestone:"Lvls 17–18 done"},
+   activities:[`${link(L.startupChallenge,"Step 4 work time")} — complete Digital Brand Board; teacher circulates and gives feedback`, `${link(L.startupChallenge,"Step 4")} submitted to Canvas as PDF before moving on`, `${link(L.startupChallenge,"Begin Step 5")} — Presentation design: Google Slides or Canva deck for Shark Tank-style pitch`], tags:[]},
+  {r:15, dates:"Nov 19–21", summary:"Graded typing check-in + Brand Board planning", goal:"WPM goal TBD", typing:"Speed drills at lesson 240. 🏆 Typing Check-in 4 (GRADED) — goal TBD; still deduct 10 pts for incorrect form.",
+   coding:{track:"cs2", level:"Lvl 19–20", due:"Nov 21", focus:"Combining functions + arrays + objects: the full CS2 toolkit working together. Arena preview.", ff:"Arena attempt", milestone:"★ CS2 progress check → Canvas", graded:true},
+   activities:[`${link(L.startupChallenge,"Step 5 continued")} — Physical Brand Board planning: how will you physically display your brand?`, "Work time on both presentation and physical brand board"], tags:["goal","graded"]},
+  {r:16, dates:"Nov 21–25", summary:"Finalize presentation + Brand Board", typing:"Speed drills at lesson 240.",
+   coding:{track:"cs2", level:"Arena", due:"Nov 25", focus:"CS2 Arena — final attempt. Best effort is graded. Students who clear Arena may preview GD2.", ff:"GD2 Lvl 1 preview", milestone:"★ Arena screenshot → Canvas", graded:true},
+   activities:[`${link(L.startupChallenge,"Step 5 work time")} — finalize presentation; practice PVLEGS delivery`, "Physical Brand Board work time — create, print, and assemble", "📊 Typing Check-in #8 (5 pts) — almost done with Q2!"], tags:["checkin","graded"]},
+  {r:17, dates:"Dec 1–3", summary:"Presentation rehearsal + Portfolio Day", goal:"WPM goal TBD", typing:"Speed drills at lesson 240 (Portfolio Day — CodeCombat focus).",
+   coding:{track:"portfolio", level:"Portfolio", due:"Dec 3", focus:"CodeCombat Portfolio Day — screenshot CS1 Arena, CS2 Arena, GD1 Tabula Rasa game, and Course Guide progress. Curate into one Canvas submission.", ff:"Write a 3-sentence reflection", milestone:"★ CodeCombat Portfolio → Canvas", graded:true},
+   activities:["Presentation rehearsal day — groups practice full Shark Tank pitch using PVLEGS rubric", "Teacher gives verbal feedback; groups revise and polish", "Final Brand Board check — make sure all elements are complete and submitted"], tags:["goal","graded"]},
+  {r:18, dates:"Dec 3–5", summary:"Final polish + Showcase Day", typing:"Speed drills at lesson 240 (Showcase Day).",
+   coding:{track:"showcase", level:"Showcase", due:"Dec 5", focus:"GD1 Showcase — walk the room, play 2–3 classmates' Tabula Rasa games; leave sticky-note feedback.", ff:"Leave extra feedback on 2 more games", milestone:"Sticky-note feedback posted; votes cast"},
+   activities:["Final work and polish day — everything for the Start-Up Challenge should be submitted or nearly done", "Presentation order determined — draw names or teacher-assigned", "📊 Typing Check-in #9 (5 pts) — final practice check before Q2 closes"], tags:["checkin"]},
+  {r:19, dates:"Dec 8–10", summary:"Graded Typing Final + Shark Tank presentations", goal:"WPM goal TBD", typing:"🏆 Q2 Typing Final (GRADED) — all lessons through lesson 240 required; this is the Q2 semester benchmark.",
+   coding:{track:"ai-bridge", level:"AI Bridge", due:"Dec 10", focus:"Bridge to Q3 — What is AI? Discussion on how AI learns from data vs. the if/else logic students just wrote. Preview the Q3 AI Hackathon.", ff:"Research one AI tool and share with the class", milestone:"AI question card submitted (formative)"},
+   activities:["Start-Up Challenge Presentations — Shark Tank style; PVLEGS rubric active", "Groups present: product overview, mock-up, company identity, brand board, and pitch", "Audience students act as 'Sharks' — ask at least one question per group"], tags:["goal","graded"]},
+  {r:20, dates:"Dec 10–12", summary:"Wrap-up + Q2 Grade Tracker update", typing:"Wrap-up / catch-up — lesson 240 required.",
+   coding:{track:"handoff", level:"Handoff", due:"Dec 12", focus:"Q2 Final Day — grades confirmed, missing work submitted. Preview Q3 AI Hackathon structure (teams, theme, deliverable).", ff:"Write one 'I used to think... now I think...'", milestone:"★ Q2 Final — all submissions confirmed", graded:true},
+   activities:["Continue Start-Up Challenge Presentations if needed", "Reflection: what did you learn about branding, computing, and working as a team?", `${link(L.gradesheetQ2,"Q2 Grade Tracker")} update — students update their grade sheet; submit final version`, "📊 Final lesson count check — confirm all students maintained coding + typing progress"], tags:["checkin","graded"]},
+];
+
+const TRACK_LABELS = {cs1:'CS1', gd1:'GD1', cs2:'CS2', portfolio:'Portfolio', showcase:'Showcase', 'ai-bridge':'AI Bridge', handoff:'Handoff'};
+function trackLabel(track){ return TRACK_LABELS[track] || track.toUpperCase(); }
+
+// --- Parse each rotation's date range into real calendar dates ---
+// Placeholder year (2026) so weekdays line up visually; update once the
+// actual 2026-27 rotation calendar is available.
+const YEAR = 2026;
+const MONTH_IDX = {Aug:7, Sep:8, Oct:9, Nov:10, Dec:11};
+function parseOneDate(str){
+  const [mon, day] = str.trim().split(' ');
+  return {month: MONTH_IDX[mon], day: parseInt(day, 10)};
 }
-function monthsBetween(startDate, endDate){
-  const out = [];
-  let y = startDate.getFullYear(), m = startDate.getMonth();
-  const endY = endDate.getFullYear(), endM = endDate.getMonth();
-  while(y < endY || (y === endY && m <= endM)){
-    out.push({year: y, month: m});
-    m++; if(m > 11){ m = 0; y++; }
-  }
-  return out;
+function parseRange(dates){
+  const [startStr, endStr] = dates.split('–');
+  const start = parseOneDate(startStr);
+  const end = /[A-Za-z]/.test(endStr) ? parseOneDate(endStr) : {month:start.month, day:parseInt(endStr,10)};
+  return {
+    start: new Date(YEAR, start.month, start.day),
+    end: new Date(YEAR, end.month, end.day)
+  };
 }
 function dateKey(d){ return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; }
-const MONTH_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const MONTH_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-function fmtDate(d){ return `${MONTH_ABBR[d.getMonth()]} ${d.getDate()}`; }
-function fmtRange(s, e){
-  if(s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()){
-    return `${MONTH_ABBR[s.getMonth()]} ${s.getDate()}–${e.getDate()}`;
-  }
-  return `${fmtDate(s)}–${fmtDate(e)}`;
-}
 
-function processQuarter(q){
-  const dateRanges = genRotationDates(QUARTER_START[q.quarter]);
-  q.rotations.forEach((rot, i) => {
-    rot.start = dateRanges[i].start;
-    rot.end = dateRanges[i].end;
-    rot.datesLabel = fmtRange(rot.start, rot.end);
-    const pts = rot.checkin ? rot.checkin.points : null;
-    rot.tags = [];
-    if(pts !== null && pts >= 50) rot.tags.push('graded');
-    else if(pts !== null && pts > 0) rot.tags.push('checkin');
-    if(rot.wpm_goal !== null) rot.tags.push('goal');
-    if(rot.typing.flag === 'milestone') rot.tags.push('milestone');
-    rot.summary = rot.typing.section + (rot.coding.target ? ` · ${rot.coding.target}` : '');
+function processRotations(rots){
+  rots.forEach(rot => {
+    const range = parseRange(rot.dates);
+    rot.start = range.start;
+    rot.end = range.end;
+    rot.status = rot.tags.includes('graded') ? 'graded' : rot.tags.includes('goal') ? 'goal' : rot.tags.includes('checkin') ? 'checkin' : 'plain';
   });
-  q.months = monthsBetween(q.rotations[0].start, q.rotations[19].end);
 }
 function buildDayMap(rots){
   const map = {};
@@ -811,68 +790,70 @@ function buildDayMap(rots){
   });
   return map;
 }
-QUARTERS.forEach(processQuarter);
-const CHECKIN_FORMATS = [{"code":"BASELINE","name":"Baseline Bank","points":0,"description":"Ungraded 3-min test with correct form. Whatever you get becomes your Personal Record (PR). Everything this year is measured against YOUR number, not anyone else's."},{"code":"PR","name":"Beat Your PR","points":5,"description":"1-min test. Full credit for beating your own Personal Record by any amount. Tie your PR = 4 pts. No comparison to classmates, ever."},{"code":"GAUNTLET","name":"Accuracy Gauntlet","points":5,"description":"3-min run at ANY speed you want - but every error costs. 100% accuracy = full credit regardless of WPM. Teaches that clean beats fast."},{"code":"BLIND","name":"Blind Draw","points":5,"description":"Sticky note over the on-screen keyboard hint (or eyes up on the projector). Proves you are actually touch typing instead of reading the guide."},{"code":"HEATMAP","name":"Heatmap Autopsy","points":5,"description":"Screenshot your TypingClub key-accuracy heatmap. Name your 3 worst keys and write one sentence on how you will fix them. Diagnosis, not speed."},{"code":"PREDICT","name":"Predict & Prove","points":5,"description":"Write your predicted WPM BEFORE the test. Scored on how close your prediction was, not how fast you typed. Rewards knowing yourself."},{"code":"BRACKET","name":"Bracket Battle","points":5,"description":"Single-elimination head-to-head races, seeded so similar speeds meet in round 1. Everyone gets at least 2 races. Participation earns full credit."},{"code":"RELAY","name":"Relay Race","points":5,"description":"Teams of 4. Each member types 30 seconds; team score is combined adjusted WPM. Slowest typist matters as much as the fastest."},{"code":"BOSS","name":"The Boss Fight","points":5,"description":"Teacher types live on the projector. Class average vs. teacher WPM. If the class wins, the class picks the next check-in format."},{"code":"DATASTORY","name":"Data Story","points":10,"description":"Chart your own WPM + accuracy across the quarter in Google Sheets, then write 2 sentences: what the trend shows and what you will change. Ties directly to the spreadsheet unit."},{"code":"TRADEOFF","name":"Speed vs. Accuracy Lab","points":5,"description":"Two runs: one 'go as fast as you can,' one 'go perfectly clean.' Compare adjusted WPM. Most students discover clean is actually faster."},{"code":"OWNWORDS","name":"Type Your Own Words","points":5,"description":"Type a paragraph YOU wrote (any class, any topic). Real composition speed is different from copy-typing speed - and this is the speed that matters for school."},{"code":"NUMBERBOSS","name":"Number Row Boss","points":5,"description":"Number-row-only drill. Expect your WPM to fall off a cliff - that is normal and it is why we practice numbers separately."},{"code":"SYMBOL","name":"Symbol Scramble","points":5,"description":"Symbol-heavy passage. Direct prep for typing real code, where a single wrong bracket breaks the whole program."},{"code":"CODETYPE","name":"Code Type Challenge","points":5,"description":"Type actual Python from your CodeCombat levels. Indentation, colons, parentheses all count. Where typing class and coding class finally shake hands."},{"code":"ENDURANCE","name":"Endurance Run","points":5,"description":"5-minute continuous test instead of 1 minute. Stamina, not sprinting - closer to what a real essay or timed test demands."},{"code":"COMEBACK","name":"Best of Three","points":5,"description":"Three attempts, highest one counts. Removes the one-shot anxiety and rewards persistence."},{"code":"STREAK","name":"Streak Check","points":5,"description":"Did you log typing practice in every rotation this cycle? Consistency credit - rewards showing up, not raw talent."},{"code":"GRADED_MID","name":"GRADED Typing Test - Midquarter","points":50,"description":"Formal 3-min test. Graded on adjusted WPM + accuracy against the rotation goal. 10 pt deduction for incorrect form (hunt-and-peck, wrong fingers, looking down)."},{"code":"GRADED_FINAL","name":"GRADED Typing Test - Quarter Final","points":100,"description":"Formal 5-min benchmark test. This is the quarter grade. Adjusted WPM + accuracy vs. the quarter target. 10 pt deduction for incorrect form."}];
-const DAY_MAPS = QUARTERS.map(q => buildDayMap(q.rotations));
+
+processRotations(rotationsQ1);
+processRotations(rotationsQ2);
+const dayMapQ1 = buildDayMap(rotationsQ1);
+const dayMapQ2 = buildDayMap(rotationsQ2);
 
 // --- Quarter + month-page state ---
 let activeQuarter = 1;
+const QUARTER_MONTHS = {1:[7,8,9], 2:[9,10,11]};
 let currentMonthPos = 0;
 let currentFilter = 'all';
-function activeQuarterData(){ return QUARTERS[activeQuarter - 1]; }
-function activeRotations(){ return activeQuarterData().rotations; }
-function activeDayMap(){ return DAY_MAPS[activeQuarter - 1]; }
+function activeRotations(){ return activeQuarter === 1 ? rotationsQ1 : rotationsQ2; }
+function activeDayMap(){ return activeQuarter === 1 ? dayMapQ1 : dayMapQ2; }
 
 const ROTATION_COLOR_COUNT = 3;
-function rotationColorClass(rot){ return 'rc' + ((rot.rotation - 1) % ROTATION_COLOR_COUNT); }
+function rotationColorClass(rot){ return 'rc' + ((rot.r - 1) % ROTATION_COLOR_COUNT); }
 function rotationBadge(rot){
   if(rot.tags.includes('graded')) return '🏆';
-  if(rot.tags.includes('milestone')) return '⭐';
-  if(rot.wpm_goal !== null) return '🎯';
+  if(rot.goal) return '🎯';
   if(rot.tags.includes('checkin')) return '📊';
-  if(rot.typing.flag === 'warn') return '⚠️';
   return '';
 }
 
 function rotationPillsHTML(rot){
-  let pills = `<span class="pill level">${rot.coding.target}</span>`;
-  if(rot.wpm_goal !== null) pills += `<span class="pill goal">🎯 ${rot.wpm_goal} wpm / ${rot.accuracy_goal}%</span>`;
-  if(rot.checkin){
-    const graded = rot.checkin.points >= 50;
-    pills += `<span class="pill ${graded ? 'graded' : 'checkin'}">${graded ? '🏆' : '📊'} ${rot.checkin.name}</span>`;
-  }
+  let pills = '';
+  if(rot.coding) pills += `<span class="pill level">${trackLabel(rot.coding.track)} ${rot.coding.level}</span>`;
+  if(rot.goal) pills += `<span class="pill goal">🎯 ${rot.goal}</span>`;
+  if(rot.tags.includes('checkin')) pills += `<span class="pill checkin">📊 Check-in</span>`;
+  if(rot.tags.includes('graded')) pills += `<span class="pill graded">🏆 Graded</span>`;
   return pills;
 }
 
 function rotationBodyHTML(rot){
-  const flagClass = 'flag-' + rot.typing.flag;
-  let body = `<div class="msection typing ${flagClass}"><div class="mlabel">⌨️ Typing — lesson floor ${rot.typing.lesson_floor}${rot.typing.flag === 'milestone' ? '<span class="mbadge">MILESTONE</span>' : ''}${rot.typing.flag === 'warn' ? '<span class="mbadge warn">HEADS UP</span>' : ''}</div>
-    <div>${rot.typing.section}</div>
-    ${!rot.typing.new_this_rotation ? '<div class="hold-note">No new lessons this rotation — holding at the floor. Fast finishers move to Dynamic Lessons.</div>' : ''}
-  </div>`;
-  if(rot.wpm_goal !== null){
-    body += `<div class="msection goal"><div class="mlabel">🎯 WPM + Accuracy Goal</div><div>${rot.wpm_goal} WPM &nbsp;/&nbsp; ${rot.accuracy_goal}% accuracy</div></div>`;
+  let body = `<div class="msection typing"><div class="mlabel">⌨️ Typing</div><div>${rot.typing}</div></div>`;
+  if(rot.coding){
+    const badgeClass = rot.coding.track;
+    body += `<div class="msection coding"><div class="mlabel">💻 Coding — CodeCombat
+      <span class="mbadge ${badgeClass}">${trackLabel(rot.coding.track)}</span>
+      ${rot.coding.graded ? '<span class="mbadge graded">GRADED</span>' : ''}
+      </div>`;
+    body += `<div><strong>${rot.coding.level}</strong> · due ${rot.coding.due}</div>`;
+    body += `<div style="margin-top:4px;">${rot.coding.focus}</div>`;
+    body += `<div class="milestone-note">⚡ Fast finisher: ${rot.coding.ff} &nbsp;·&nbsp; Milestone: ${rot.coding.milestone}</div>`;
+    body += `</div>`;
+  } else {
+    body += `<div class="msection coding"><div class="mlabel">💻 Coding — CodeCombat</div><div>${rot.codingNote || 'Not started yet — coding blocks begin Rotation 3.'}</div></div>`;
   }
-  if(rot.checkin){
-    const graded = rot.checkin.points >= 50;
-    body += `<div class="msection ${graded ? 'graded' : 'checkin'}"><div class="mlabel">${graded ? '🏆' : '📊'} Check-in — ${rot.checkin.name} (${rot.checkin.points} pt${rot.checkin.points === 1 ? '' : 's'})</div><div>${rot.checkin.description}</div></div>`;
-  }
-  body += `<div class="msection coding"><div class="mlabel">💻 Coding</div><div><strong>${rot.coding.target}</strong></div><div style="margin-top:4px;">${rot.coding.detail}</div></div>`;
+  body += `<div class="msection activities"><div class="mlabel">📋 Other Activities</div><ul>`;
+  rot.activities.forEach(a => body += `<li>${a}</li>`);
+  body += `</ul></div>`;
   return body;
 }
 
 const overlayEl = document.getElementById('overlay');
 const modalEl = document.getElementById('modal');
-function openModal(rNum){
-  const rot = activeRotations().find(x => x.rotation === rNum);
+function openModal(r){
+  const rot = activeRotations().find(x => x.r === r);
   if(!rot) return;
-  const status = rot.tags.includes('graded') ? 'graded' : rot.tags.includes('milestone') ? 'milestone' : rot.tags.includes('goal') ? 'goal' : rot.tags.includes('checkin') ? 'checkin' : 'plain';
-  modalEl.className = 'modal ' + (status !== 'plain' ? status : '');
+  modalEl.className = 'modal ' + (rot.status !== 'plain' ? rot.status : '');
   modalEl.innerHTML = `
     <button class="close" onclick="closeModal()">✕</button>
     <div class="cd-head">
-      <h4>Rotation ${rot.rotation}</h4>
-      <span class="cd-date">${rot.datesLabel}</span>
+      <h4>Rotation ${rot.r}</h4>
+      <span class="cd-date">${rot.dates}</span>
       <span class="cd-pills">${rotationPillsHTML(rot)}</span>
     </div>
     ${rotationBodyHTML(rot)}
@@ -884,6 +865,7 @@ overlayEl.addEventListener('click', (e) => { if(e.target === overlayEl) closeMod
 document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
 
 // --- Render one month at a time ---
+const MONTH_NAMES = {7:'August', 8:'September', 9:'October', 10:'November', 11:'December'};
 const WEEKDAY_LABELS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const calEl = document.getElementById('calendar');
 const monthLabelEl = document.getElementById('month-label');
@@ -891,18 +873,18 @@ const monthPrevBtn = document.getElementById('month-prev');
 const monthNextBtn = document.getElementById('month-next');
 
 function renderCalendarMonth(){
-  const months = activeQuarterData().months;
-  const {year, month: m} = months[currentMonthPos];
+  const months = QUARTER_MONTHS[activeQuarter];
+  const m = months[currentMonthPos];
   const dayMap = activeDayMap();
-  const daysInMonth = new Date(year, m + 1, 0).getDate();
-  const firstDow = new Date(year, m, 1).getDay();
+  const daysInMonth = new Date(YEAR, m + 1, 0).getDate();
+  const firstDow = new Date(YEAR, m, 1).getDay();
 
   let html = `<div class="cal-month">`;
   html += `<div class="cal-weekdays">${WEEKDAY_LABELS.map(w => `<span>${w}</span>`).join('')}</div>`;
   html += `<div class="cal-grid">`;
   for(let i = 0; i < firstDow; i++) html += `<div class="cal-day empty"></div>`;
   for(let day = 1; day <= daysInMonth; day++){
-    const d = new Date(year, m, day);
+    const d = new Date(YEAR, m, day);
     const dow = d.getDay();
     const rot = dayMap[dateKey(d)];
     if(dow === 0 || dow === 6){
@@ -911,17 +893,17 @@ function renderCalendarMonth(){
       html += `<div class="cal-day out-of-range"><span class="cd-daynum">${day}</span></div>`;
     } else {
       const badge = rotationBadge(rot);
-      const tip = rot.summary ? ` title="Rotation ${rot.rotation}: ${rot.summary}"` : '';
-      html += `<div class="cal-day has-rotation ${rotationColorClass(rot)}" data-rotation="${rot.rotation}"${tip}>
+      const tip = rot.summary ? ` title="Rotation ${rot.r}: ${rot.summary}"` : '';
+      html += `<div class="cal-day has-rotation ${rotationColorClass(rot)}" data-rotation="${rot.r}"${tip}>
         <span class="cd-top"><span class="cd-daynum">${day}</span>${badge ? `<span class="cd-badge">${badge}</span>` : ''}</span>
-        <span class="cd-rnum">R${rot.rotation}</span>
+        <span class="cd-rnum">R${rot.r}</span>
       </div>`;
     }
   }
   html += `</div></div>`;
   calEl.innerHTML = html;
 
-  monthLabelEl.textContent = `${MONTH_FULL[m]} ${year}`;
+  monthLabelEl.textContent = `${MONTH_NAMES[m]} ${YEAR}`;
   monthPrevBtn.disabled = currentMonthPos === 0;
   monthNextBtn.disabled = currentMonthPos === months.length - 1;
 
@@ -937,7 +919,7 @@ monthPrevBtn.addEventListener('click', () => {
   if(currentMonthPos > 0){ currentMonthPos--; renderCalendarMonth(); }
 });
 monthNextBtn.addEventListener('click', () => {
-  const months = activeQuarterData().months;
+  const months = QUARTER_MONTHS[activeQuarter];
   if(currentMonthPos < months.length - 1){ currentMonthPos++; renderCalendarMonth(); }
 });
 
@@ -950,12 +932,12 @@ function renderList(){
     row.className = 'list-row ' + rotationColorClass(rot);
     row.dataset.tags = rot.tags.join(',');
     row.innerHTML = `
-      <span class="lr-num">Rotation ${rot.rotation}</span>
-      <span class="lr-date">${rot.datesLabel}</span>
+      <span class="lr-num">Rotation ${rot.r}</span>
+      <span class="lr-date">${rot.dates}</span>
       <span class="lr-pills">${rotationPillsHTML(rot)}</span>
       ${rot.summary ? `<span class="lr-summary">${rot.summary}</span>` : ''}
     `;
-    row.addEventListener('click', () => openModal(rot.rotation));
+    row.addEventListener('click', () => openModal(rot.r));
     listEl.appendChild(row);
   });
   applyFilter();
@@ -964,7 +946,7 @@ function renderList(){
 function applyFilter(){
   const f = currentFilter;
   document.querySelectorAll('.cal-day.has-rotation').forEach(cell => {
-    const rot = activeRotations().find(x => x.rotation === parseInt(cell.dataset.rotation, 10));
+    const rot = activeRotations().find(x => x.r === parseInt(cell.dataset.rotation, 10));
     cell.classList.toggle('dimmed', f !== 'all' && !rot.tags.includes(f));
   });
   document.querySelectorAll('.list-row').forEach(row => {
@@ -1005,7 +987,7 @@ document.querySelectorAll('.quarter-switch button').forEach(btn => {
     document.querySelectorAll('.quarter-switch button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeQuarter = parseInt(btn.dataset.qtr, 10);
-    document.getElementById('qtr-label').textContent = activeQuarterData().name;
+    document.getElementById('qtr-label').textContent = 'Quarter ' + activeQuarter;
     currentMonthPos = 0;
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
     document.querySelector('.filters button[data-filter="all"]').classList.add('active');
@@ -1017,31 +999,6 @@ document.querySelectorAll('.quarter-switch button').forEach(btn => {
     });
   });
 });
-
-function typingPacingTableHTML(q){
-  const flagLabel = {milestone:'⭐ Milestone', warn:'⚠️ Caution', hold:'⏸ Hold'};
-  const rows = q.rotations.map(rot => {
-    const flag = flagLabel[rot.typing.flag] || '';
-    const goal = rot.wpm_goal !== null ? `${rot.wpm_goal} wpm / ${rot.accuracy_goal}%` : '—';
-    return `<tr><td>R${rot.rotation}</td><td>${rot.typing.lesson_floor}</td><td>${rot.typing.section}</td><td>${flag}</td><td>${goal}</td></tr>`;
-  }).join('');
-  return `<div class="tw-table"><table class="ref-table"><tr><th>Rotation</th><th>Lesson Floor</th><th>What's New</th><th>Flag</th><th>Goal</th></tr>${rows}</table></div>`;
-}
-function milestonesTableHTML(q){
-  const graded = q.rotations.filter(rot => rot.checkin && rot.checkin.points >= 50);
-  if(!graded.length) return `<p style="font-size:0.85rem;color:var(--muted);">No graded milestones this quarter.</p>`;
-  const rows = graded.map(rot => `<tr><td>R${rot.rotation}</td><td>${rot.checkin.points} pts</td><td>${rot.coding.target}</td><td>${rot.coding.detail}</td></tr>`).join('');
-  return `<div class="tw-table"><table class="ref-table"><tr><th>Rotation</th><th>Points</th><th>Coding Target</th><th>Detail</th></tr>${rows}</table></div>`;
-}
-function checkinGlossaryHTML(){
-  const rows = CHECKIN_FORMATS.map(f => `<tr><td>${f.name}</td><td>${f.points}</td><td>${f.description}</td></tr>`).join('');
-  return `<div class="tw-table"><table class="ref-table"><tr><th>Format</th><th>Points</th><th>What students do</th></tr>${rows}</table></div>`;
-}
-[1,2,3,4].forEach(qn => {
-  document.getElementById('ref-typing-' + qn).innerHTML = typingPacingTableHTML(QUARTERS[qn - 1]);
-  document.getElementById('ref-milestones-' + qn).innerHTML = milestonesTableHTML(QUARTERS[qn - 1]);
-});
-document.getElementById('ref-checkin-glossary').innerHTML = checkinGlossaryHTML();
 
 renderCalendarMonth();
 renderList();
