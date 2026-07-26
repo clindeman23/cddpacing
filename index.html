@@ -355,7 +355,7 @@ footer{
   <div class="page active" id="page-calendar">
     <div class="section-title-row">
       <h2 class="section-title">Rotation Calendar</h2>
-      <button id="download-pdf" class="pdf-btn">📥 Download PDF (All Rotations)</button>
+      <button id="download-pdf" class="pdf-btn">📥 Download PDF (Quarter 1)</button>
     </div>
 
     <div class="view-toggle">
@@ -367,7 +367,6 @@ footer{
       <button class="active" data-filter="all">All Rotations</button>
       <button data-filter="graded">🏆 Graded</button>
       <button data-filter="checkin">📊 Check-ins</button>
-      <button data-filter="goal">🎯 Goal Days</button>
     </div>
 
     <div class="cal-view active" id="view-grid">
@@ -1037,6 +1036,7 @@ document.querySelectorAll('.quarter-switch button').forEach(btn => {
     btn.classList.add('active');
     activeQuarter = parseInt(btn.dataset.qtr, 10);
     document.getElementById('qtr-label').textContent = 'Quarter ' + activeQuarter;
+    document.getElementById('download-pdf').textContent = '📥 Download PDF (Quarter ' + activeQuarter + ')';
     currentMonthPos = 0;
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
     document.querySelector('.filters button[data-filter="all"]').classList.add('active');
@@ -1050,27 +1050,23 @@ document.querySelectorAll('.quarter-switch button').forEach(btn => {
 });
 
 function buildPrintView(){
-  const quarters = [
-    {label: 'Quarter 1', rots: rotationsQ1},
-    {label: 'Quarter 2', rots: rotationsQ2},
-  ];
+  const label = 'Quarter ' + activeQuarter;
+  const rots = activeRotations();
   let html = `
-    <div class="print-title">Computing &amp; Digital Dynamics — Full Pacing Guide</div>
-    <div class="print-sub">2026–2027 · Mr. Lindeman · generated ${new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'})}</div>
+    <div class="print-title">Computing &amp; Digital Dynamics — Pacing Guide</div>
+    <div class="print-sub">${label} · 2026–2027 · Mr. Lindeman · generated ${new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'})}</div>
   `;
-  quarters.forEach((q, qi) => {
-    html += `<div class="print-quarter-title${qi > 0 ? ' newpage' : ''}">${q.label}</div>`;
-    q.rots.forEach(rot => {
-      html += `
-        <div class="print-rotation">
-          <div class="print-rot-head">
-            <span class="print-rot-num">Rotation ${rot.r}</span>
-            <span class="print-rot-date">${rot.dates}</span>
-          </div>
-          ${rotationBodyHTML(rot)}
+  html += `<div class="print-quarter-title">${label}</div>`;
+  rots.forEach(rot => {
+    html += `
+      <div class="print-rotation">
+        <div class="print-rot-head">
+          <span class="print-rot-num">Rotation ${rot.r}</span>
+          <span class="print-rot-date">${rot.dates}</span>
         </div>
-      `;
-    });
+        ${rotationBodyHTML(rot)}
+      </div>
+    `;
   });
   document.getElementById('print-view').innerHTML = html;
 }
