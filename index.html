@@ -96,11 +96,55 @@ nav.tabs button.active{color:var(--text);border-bottom-color:var(--accent);}
 
 h2.section-title{
   font-family:'JetBrains Mono',monospace;color:var(--text);font-size:1.05rem;font-weight:700;
-  margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border);
+  margin:0;padding-bottom:0;border-bottom:none;
   display:flex;align-items:center;gap:8px;
 }
 h2.section-title::before{content:'>';color:var(--accent);font-weight:800;}
 p.section-sub{color:var(--muted);font-size:0.88rem;margin:-10px 0 20px;}
+.section-title-row{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border);
+}
+.pdf-btn{
+  border:1px solid var(--accent);background:var(--accent-dim);color:var(--accent);
+  padding:7px 14px;border-radius:6px;font-weight:700;font-size:0.78rem;
+  font-family:'JetBrains Mono',monospace;letter-spacing:0.2px;
+  cursor:pointer;transition:all 0.15s;
+}
+.pdf-btn:hover{background:var(--accent);color:#fff;}
+.print-view{display:none;}
+@media print{
+  header, .quarter-switch, nav.tabs, .section-title-row, .view-toggle, .filters,
+  .cal-view, footer, .overlay{ display:none !important; }
+  .topstripe{ display:none !important; }
+  body{ background:#fff; padding-bottom:0; }
+  .wrap{ max-width:100%; padding:0; }
+  .print-view{
+    display:block; font-family:'Inter',sans-serif; color:#111;
+  }
+  .print-view .print-title{
+    font-family:'JetBrains Mono',monospace; font-size:1.3rem; font-weight:800; margin-bottom:4px;
+  }
+  .print-view .print-sub{ color:#555; font-size:0.85rem; margin-bottom:22px; }
+  .print-view .print-quarter-title{
+    font-family:'JetBrains Mono',monospace; font-size:1.1rem; font-weight:800;
+    margin:22px 0 12px; padding-bottom:6px; border-bottom:2px solid #111;
+  }
+  .print-view .print-quarter-title.newpage{ page-break-before:always; margin-top:0; }
+  .print-view .print-rotation{
+    border:1px solid #ccc; border-radius:6px; padding:10px 12px; margin-bottom:10px;
+    page-break-inside:avoid;
+  }
+  .print-view .print-rot-head{
+    display:flex; align-items:baseline; gap:10px; margin-bottom:8px;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .print-view .print-rot-head .print-rot-num{ font-weight:800; font-size:0.95rem; }
+  .print-view .print-rot-head .print-rot-date{ color:#555; font-size:0.82rem; }
+  .print-view .msection{ border:none; background:none !important; padding:4px 0; margin-bottom:6px; }
+  .print-view .msection .mlabel{ color:#111 !important; }
+  .print-view .reslink{ color:#111; border:none; background:none; padding:0; text-decoration:underline; }
+}
 
 /* Quick Links dashboard */
 .qlgroup{margin-bottom:30px;}
@@ -309,7 +353,10 @@ footer{
 
   <!-- CALENDAR -->
   <div class="page active" id="page-calendar">
-    <h2 class="section-title">Rotation Calendar</h2>
+    <div class="section-title-row">
+      <h2 class="section-title">Rotation Calendar</h2>
+      <button id="download-pdf" class="pdf-btn">📥 Download PDF (All Rotations)</button>
+    </div>
 
     <div class="view-toggle">
       <button class="active" data-view="grid">🔲 Grid View</button>
@@ -586,6 +633,8 @@ footer{
 <div class="overlay" id="overlay">
   <div class="modal" id="modal"></div>
 </div>
+
+<div class="print-view" id="print-view"></div>
 
 <script>
 // Resource links pulled from the Google Doc's own hyperlinks
@@ -998,6 +1047,37 @@ document.querySelectorAll('.quarter-switch button').forEach(btn => {
       el.classList.toggle('active', el.dataset.qtr === String(activeQuarter));
     });
   });
+});
+
+function buildPrintView(){
+  const quarters = [
+    {label: 'Quarter 1', rots: rotationsQ1},
+    {label: 'Quarter 2', rots: rotationsQ2},
+  ];
+  let html = `
+    <div class="print-title">Computing &amp; Digital Dynamics — Full Pacing Guide</div>
+    <div class="print-sub">2026–2027 · Mr. Lindeman · generated ${new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'})}</div>
+  `;
+  quarters.forEach((q, qi) => {
+    html += `<div class="print-quarter-title${qi > 0 ? ' newpage' : ''}">${q.label}</div>`;
+    q.rots.forEach(rot => {
+      html += `
+        <div class="print-rotation">
+          <div class="print-rot-head">
+            <span class="print-rot-num">Rotation ${rot.r}</span>
+            <span class="print-rot-date">${rot.dates}</span>
+          </div>
+          ${rotationBodyHTML(rot)}
+        </div>
+      `;
+    });
+  });
+  document.getElementById('print-view').innerHTML = html;
+}
+
+document.getElementById('download-pdf').addEventListener('click', () => {
+  buildPrintView();
+  window.print();
 });
 
 renderCalendarMonth();
