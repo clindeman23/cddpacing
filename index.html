@@ -320,6 +320,47 @@ table.ref-table tr:nth-child(even) td{background:#f8fafc;}
 ul.notes-list{padding-left:22px;margin-top:10px;}
 ul.notes-list li{margin-bottom:8px;font-size:0.92rem;}
 
+/* Where We Left Off */
+.leftoff-group{margin-bottom:26px;}
+.leftoff-group h3{
+  font-family:'JetBrains Mono',monospace;font-size:0.76rem;text-transform:uppercase;letter-spacing:0.8px;
+  color:var(--muted);font-weight:700;margin-bottom:12px;
+}
+.leftoff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.leftoff-grid-1{grid-template-columns:1fr;}
+@media(max-width:700px){.leftoff-grid{grid-template-columns:1fr;}}
+.leftoff-card{
+  background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:14px 16px;box-shadow:var(--shadow);
+}
+.leftoff-card-label{
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:0.85rem;color:var(--text);margin-bottom:8px;
+}
+.leftoff-card-rotation{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.leftoff-card-rotation label{
+  font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);font-weight:700;
+}
+.leftoff-rotation{
+  font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:700;color:var(--text);
+  border:1px solid var(--border);border-radius:6px;padding:5px 8px;background:var(--card);cursor:pointer;
+}
+.leftoff-rotation:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.leftoff-textarea{
+  width:100%;min-height:110px;resize:vertical;font-family:'Inter',sans-serif;font-size:0.92rem;
+  border:1px solid var(--border);border-radius:6px;padding:10px 12px;color:var(--text);
+  background:var(--paper);line-height:1.5;
+}
+.leftoff-textarea:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.leftoff-card-foot{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.leftoff-save{
+  border:1px solid var(--accent);background:var(--accent);color:#fff;
+  padding:6px 14px;border-radius:6px;font-weight:700;font-size:0.78rem;
+  font-family:'JetBrains Mono',monospace;cursor:pointer;transition:opacity 0.15s;
+}
+.leftoff-save:hover{opacity:0.88;}
+.leftoff-save:disabled{opacity:0.5;cursor:default;}
+.leftoff-status{font-size:0.76rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+
 footer{
   text-align:center;color:var(--muted);font-size:0.8rem;margin-top:40px;padding:0 20px;
   font-family:'JetBrains Mono',monospace;
@@ -347,6 +388,7 @@ footer{
   <button data-page="links">🔗 Quick Links</button>
   <button data-page="gradesheets">📊 Grade Sheets</button>
   <button data-page="reference">📋 Reference</button>
+  <button data-page="leftoff">📍 Where We Left Off</button>
 </nav>
 
 <div class="wrap">
@@ -626,6 +668,667 @@ footer{
   </div>
 
 </div>
+
+  <!-- WHERE WE LEFT OFF -->
+  <div class="page" id="page-leftoff">
+    <div class="section-title-row">
+      <h2 class="section-title">Where We Left Off</h2>
+      <button id="leftoff-refresh" class="pdf-btn">🔄 Refresh</button>
+    </div>
+    <p class="section-sub">Shared with every teacher — pick the rotation your section is on, type where you left off, and hit Save. It saves straight to GitHub, so anyone opening this page on any computer sees the latest update.</p>
+    <p id="leftoff-error" style="display:none; color:#b91c1c; font-family:'JetBrains Mono',monospace; font-size:0.85rem; margin:-10px 0 20px;">⚠️ Couldn't load the latest notes — check your internet connection and hit Refresh.</p>
+
+  <div class="qtr-block active" data-qtr="1">
+
+    <div class="leftoff-group">
+      <h3>Period 1</h3>
+      <div class="leftoff-grid">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period1a">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period1a" data-key="q1_period1a">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period1a" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period1a">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period1a"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period1b">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period1b" data-key="q1_period1b">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period1b" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period1b">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period1b"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leftoff-group">
+      <h3>Period 2</h3>
+      <div class="leftoff-grid">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period2a">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period2a" data-key="q1_period2a">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period2a" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period2a">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period2a"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period2b">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period2b" data-key="q1_period2b">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period2b" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period2b">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period2b"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leftoff-group">
+      <h3>Period 3</h3>
+      <div class="leftoff-grid leftoff-grid-1">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Meeting Notes</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period3">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period3" data-key="q1_period3">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period3" placeholder="Meeting notes for Period 3..."></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period3">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period3"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leftoff-group">
+      <h3>Periods 4–7</h3>
+      <div class="leftoff-grid">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 4</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period4">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period4" data-key="q1_period4">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period4" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period4">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period4"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 5</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period5">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period5" data-key="q1_period5">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period5" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period5">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period5"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 6</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period6">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period6" data-key="q1_period6">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period6" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period6">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period6"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 7</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q1_period7">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q1_period7" data-key="q1_period7">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q1_period7" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q1_period7">💾 Save</button>
+            <span class="leftoff-status" data-key="q1_period7"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="qtr-block" data-qtr="2">
+
+    <div class="leftoff-group">
+      <h3>Period 1</h3>
+      <div class="leftoff-grid">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period1a">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period1a" data-key="q2_period1a">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period1a" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period1a">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period1a"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period1b">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period1b" data-key="q2_period1b">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period1b" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period1b">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period1b"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leftoff-group">
+      <h3>Period 2</h3>
+      <div class="leftoff-grid">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period2a">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period2a" data-key="q2_period2a">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period2a" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period2a">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period2a"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period2b">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period2b" data-key="q2_period2b">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period2b" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period2b">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period2b"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leftoff-group">
+      <h3>Period 3</h3>
+      <div class="leftoff-grid leftoff-grid-1">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Meeting Notes</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period3">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period3" data-key="q2_period3">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period3" placeholder="Meeting notes for Period 3..."></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period3">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period3"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leftoff-group">
+      <h3>Periods 4–7</h3>
+      <div class="leftoff-grid">
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 4</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period4">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period4" data-key="q2_period4">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period4" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period4">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period4"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 5</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period5">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period5" data-key="q2_period5">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period5" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period5">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period5"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 6</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period6">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period6" data-key="q2_period6">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period6" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period6">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period6"></span>
+          </div>
+        </div>
+        <div class="leftoff-card">
+          <div class="leftoff-card-label">Period 7</div>
+          <div class="leftoff-card-rotation">
+            <label for="rot-q2_period7">Rotation</label>
+            <select class="leftoff-rotation" id="rot-q2_period7" data-key="q2_period7">
+              <option value="1">Rotation 1</option>
+              <option value="2">Rotation 2</option>
+              <option value="3">Rotation 3</option>
+              <option value="4">Rotation 4</option>
+              <option value="5">Rotation 5</option>
+              <option value="6">Rotation 6</option>
+              <option value="7">Rotation 7</option>
+              <option value="8">Rotation 8</option>
+              <option value="9">Rotation 9</option>
+              <option value="10">Rotation 10</option>
+              <option value="11">Rotation 11</option>
+              <option value="12">Rotation 12</option>
+              <option value="13">Rotation 13</option>
+              <option value="14">Rotation 14</option>
+              <option value="15">Rotation 15</option>
+              <option value="16">Rotation 16</option>
+              <option value="17">Rotation 17</option>
+              <option value="18">Rotation 18</option>
+              <option value="19">Rotation 19</option>
+              <option value="20">Rotation 20</option>
+            </select>
+          </div>
+          <textarea class="leftoff-textarea" data-key="q2_period7" placeholder="Where did this section/class leave off?"></textarea>
+          <div class="leftoff-card-foot">
+            <button class="leftoff-save" data-key="q2_period7">💾 Save</button>
+            <span class="leftoff-status" data-key="q2_period7"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
 
 <footer>// Computing &amp; Digital Dynamics · 2026–2027 · built from the Q1 &amp; Q2 Pacing Guide drafts &amp; CodeCombat schedules — update rotation dates to match this year's calendar.</footer>
 
@@ -1027,6 +1730,7 @@ document.querySelectorAll('nav.tabs button').forEach(btn => {
     btn.classList.add('active');
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + btn.dataset.page).classList.add('active');
+    if(btn.dataset.page === 'leftoff' && !leftoffLoaded) loadLeftoff();
   });
 });
 
@@ -1075,6 +1779,103 @@ document.getElementById('download-pdf').addEventListener('click', () => {
   buildPrintView();
   window.print();
 });
+
+// --- "Where We Left Off" — shared notes saved to a JSON file in this GitHub repo ---
+// Fine-grained personal access token, scoped to ONLY this repo with Contents: Read & write.
+// NOTE: this token is visible to anyone who views this page's source. That's an accepted
+// tradeoff for this internal classroom tool — it can only touch this one repo.
+const LEFTOFF_TOKEN = "PASTE_YOUR_GITHUB_TOKEN_HERE";
+const LEFTOFF_OWNER = "clindeman23";
+const LEFTOFF_REPO = "cddpacing";
+const LEFTOFF_PATH = "leftoff.json";
+
+function leftoffTimestamp(d){
+  return d.toLocaleString('en-US', {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+}
+function b64EncodeUtf8(str){ return btoa(unescape(encodeURIComponent(str))); }
+function b64DecodeUtf8(str){ return decodeURIComponent(escape(atob(str))); }
+
+async function leftoffFetchFile(){
+  const res = await fetch(`https://api.github.com/repos/${LEFTOFF_OWNER}/${LEFTOFF_REPO}/contents/${LEFTOFF_PATH}`, {
+    headers: {
+      "Accept": "application/vnd.github+json",
+      "Authorization": `Bearer ${LEFTOFF_TOKEN}`,
+    },
+    cache: "no-store",
+  });
+  if(!res.ok) throw new Error("leftoff fetch failed: " + res.status);
+  const data = await res.json();
+  const content = JSON.parse(b64DecodeUtf8(data.content));
+  return {content, sha: data.sha};
+}
+
+const LEFTOFF_KEYS = Array.from(document.querySelectorAll(".leftoff-textarea")).map(el => el.dataset.key);
+
+let leftoffLoaded = false;
+async function loadLeftoff(){
+  const errEl = document.getElementById("leftoff-error");
+  errEl.style.display = "none";
+  try {
+    const {content} = await leftoffFetchFile();
+    LEFTOFF_KEYS.forEach(key => {
+      const entry = content[key];
+      const textarea = document.querySelector(`.leftoff-textarea[data-key="${key}"]`);
+      const rotationEl = document.querySelector(`.leftoff-rotation[data-key="${key}"]`);
+      const statusEl = document.querySelector(`.leftoff-status[data-key="${key}"]`);
+      textarea.value = (entry && entry.text) || "";
+      rotationEl.value = (entry && entry.rotation) || "1";
+      statusEl.textContent = (entry && entry.updated) ? "Last updated " + leftoffTimestamp(new Date(entry.updated)) : "";
+    });
+    leftoffLoaded = true;
+  } catch(err){
+    console.error(err);
+    errEl.style.display = "block";
+  }
+}
+
+async function saveLeftoffSection(key){
+  const btn = document.querySelector(`.leftoff-save[data-key="${key}"]`);
+  const statusEl = document.querySelector(`.leftoff-status[data-key="${key}"]`);
+  const textarea = document.querySelector(`.leftoff-textarea[data-key="${key}"]`);
+  const rotationEl = document.querySelector(`.leftoff-rotation[data-key="${key}"]`);
+  const text = textarea.value;
+  const rotation = parseInt(rotationEl.value, 10);
+  btn.disabled = true;
+  statusEl.textContent = "Saving…";
+  const attempt = async () => {
+    const {content, sha} = await leftoffFetchFile();
+    content[key] = {rotation, text, updated: new Date().toISOString()};
+    const res = await fetch(`https://api.github.com/repos/${LEFTOFF_OWNER}/${LEFTOFF_REPO}/contents/${LEFTOFF_PATH}`, {
+      method: "PUT",
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": `Bearer ${LEFTOFF_TOKEN}`,
+      },
+      body: JSON.stringify({
+        message: `Update "where we left off" — ${key} (Rotation ${rotation})`,
+        content: b64EncodeUtf8(JSON.stringify(content, null, 2)),
+        sha,
+      }),
+    });
+    return res;
+  };
+  try {
+    let res = await attempt();
+    if(res.status === 409){ res = await attempt(); } // sha changed under us — retry once
+    if(!res.ok) throw new Error("leftoff save failed: " + res.status);
+    statusEl.textContent = "Saved ✓ " + leftoffTimestamp(new Date());
+  } catch(err){
+    console.error(err);
+    statusEl.textContent = "⚠️ Save failed — try again";
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+document.querySelectorAll(".leftoff-save").forEach(btn => {
+  btn.addEventListener("click", () => saveLeftoffSection(btn.dataset.key));
+});
+document.getElementById("leftoff-refresh").addEventListener("click", loadLeftoff);
 
 renderCalendarMonth();
 renderList();
