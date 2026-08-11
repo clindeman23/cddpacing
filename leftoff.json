@@ -1,8 +1,8 @@
 {
   "q1_period1a": {
     "rotation": 1,
-    "text": "",
-    "updated": null
+    "text": "TEST - token write check, will revert",
+    "updated": "2026-07-26T00:00:00.000Z"
   },
   "q1_period1b": {
     "rotation": 1,
