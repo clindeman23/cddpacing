@@ -684,7 +684,7 @@ footer{
       <h3>Period 1</h3>
       <div class="leftoff-grid">
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-label">Room 3200</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q1_period1a">Rotation</label>
             <select class="leftoff-rotation" id="rot-q1_period1a" data-key="q1_period1a">
@@ -717,7 +717,7 @@ footer{
           </div>
         </div>
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-label">Room 3201</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q1_period1b">Rotation</label>
             <select class="leftoff-rotation" id="rot-q1_period1b" data-key="q1_period1b">
@@ -756,7 +756,7 @@ footer{
       <h3>Period 2</h3>
       <div class="leftoff-grid">
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-label">Room 3200</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q1_period2a">Rotation</label>
             <select class="leftoff-rotation" id="rot-q1_period2a" data-key="q1_period2a">
@@ -789,7 +789,7 @@ footer{
           </div>
         </div>
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-label">Room 3201</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q1_period2b">Rotation</label>
             <select class="leftoff-rotation" id="rot-q1_period2b" data-key="q1_period2b">
@@ -1009,7 +1009,7 @@ footer{
       <h3>Period 1</h3>
       <div class="leftoff-grid">
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-label">Room 3200</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q2_period1a">Rotation</label>
             <select class="leftoff-rotation" id="rot-q2_period1a" data-key="q2_period1a">
@@ -1042,7 +1042,7 @@ footer{
           </div>
         </div>
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-label">Room 3201</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q2_period1b">Rotation</label>
             <select class="leftoff-rotation" id="rot-q2_period1b" data-key="q2_period1b">
@@ -1081,7 +1081,7 @@ footer{
       <h3>Period 2</h3>
       <div class="leftoff-grid">
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section A</div>
+          <div class="leftoff-card-label">Room 3200</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q2_period2a">Rotation</label>
             <select class="leftoff-rotation" id="rot-q2_period2a" data-key="q2_period2a">
@@ -1114,7 +1114,7 @@ footer{
           </div>
         </div>
         <div class="leftoff-card">
-          <div class="leftoff-card-label">Section B</div>
+          <div class="leftoff-card-label">Room 3201</div>
           <div class="leftoff-card-rotation">
             <label for="rot-q2_period2b">Rotation</label>
             <select class="leftoff-rotation" id="rot-q2_period2b" data-key="q2_period2b">
@@ -1781,9 +1781,9 @@ document.getElementById('download-pdf').addEventListener('click', () => {
 });
 
 // --- "Where We Left Off" — shared notes saved to a JSON file in this GitHub repo ---
-// Fine-grained personal access token, scoped to ONLY this repo with Contents: Read & write.
-// NOTE: this token is visible to anyone who views this page's source. That's an accepted
-// tradeoff for this internal classroom tool — it can only touch this one repo.
+// Classic personal access token (repo scope — access to all repos on this account).
+// NOTE: this token is visible to anyone who views this page's source. Accepted tradeoff
+// for this internal, teacher-only tool with no student data in it.
 const LEFTOFF_TOKEN = "PASTE_YOUR_GITHUB_TOKEN_HERE";
 const LEFTOFF_OWNER = "clindeman23";
 const LEFTOFF_REPO = "cddpacing";
