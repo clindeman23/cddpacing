@@ -213,20 +213,17 @@ p.section-sub{color:var(--muted);font-size:0.88rem;margin:-10px 0 20px;}
 .cal-day.rc1{background:#ede9fe;border-color:#c4b5fd;color:#5b21b6;}
 .cal-day.rc2{background:#e0f2fe;border-color:#7dd3fc;color:#075985;}
 
-/* Period switcher */
-.period-switch{display:flex;align-items:center;gap:6px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;}
-.period-switch-label{
-  font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:700;color:var(--muted);
-  text-transform:uppercase;letter-spacing:0.5px;margin-right:2px;
-}
-.period-switch button{
-  border:1px solid var(--border);background:var(--card);color:var(--text);
-  width:32px;height:32px;border-radius:6px;font-weight:700;font-size:0.85rem;
-  font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.15s;
-}
-.period-switch button:hover{border-color:var(--accent);}
-.period-switch button.active{background:var(--ink);border-color:var(--ink);color:#fff;}
 p.period-note{text-align:center;max-width:640px;margin-left:auto;margin-right:auto;}
+.cal-day.split-day{background:repeating-linear-gradient(135deg, var(--card), var(--card) 6px, #f1f3f6 6px, #f1f3f6 12px);}
+.cal-day .cd-periods{font-size:0.6rem;color:inherit;opacity:0.8;}
+.picker-title{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1rem;margin-bottom:14px;padding-right:24px;}
+.picker-option{
+  display:block;width:100%;text-align:left;background:var(--paper);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;margin-bottom:10px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s;
+}
+.picker-option:hover{border-color:var(--accent);background:var(--accent-dim);}
+.picker-option .po-title{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--text);margin-bottom:2px;}
+.picker-option .po-sub{font-size:0.82rem;color:var(--muted);}
 
 /* Grid / List view toggle */
 .view-toggle{display:flex;gap:8px;justify-content:center;margin-bottom:18px;}
@@ -418,17 +415,7 @@ footer{
       <button id="download-pdf" class="pdf-btn">📥 Download PDF (Quarter 1)</button>
     </div>
 
-    <div class="period-switch">
-      <span class="period-switch-label">Period:</span>
-      <button class="active" data-period="1">1</button>
-      <button data-period="2">2</button>
-      <button data-period="3">3</button>
-      <button data-period="4">4</button>
-      <button data-period="5">5</button>
-      <button data-period="6">6</button>
-      <button data-period="7">7</button>
-    </div>
-    <p class="section-sub period-note">Dates come from MCA's published class-rotation calendar for whichever period is selected above (Period 1/2 sections meet at the same time as each other, just in different rooms). Rotations shown as <strong>TBD</strong> haven't been scheduled by the school yet — Q2 dates are only published through Nov 9, 2026 so far.</p>
+    <p class="section-sub period-note">Each rotation runs across 1–3 real school days, since only 4 of the 7 periods meet per day. Days shown with two rotation numbers are shared between the two — click and pick which one you want. Rotations shown as <strong>TBD</strong> haven't been scheduled by the school yet — Q2 dates are only published through Nov 9, 2026 so far.</p>
 
     <div class="view-toggle">
       <button class="active" data-view="grid">🔲 Grid View</button>
@@ -1531,26 +1518,27 @@ const rotationsQ2 = [
 const TRACK_LABELS = {cs1:'CS1', gd1:'GD1', cs2:'CS2', portfolio:'Portfolio', showcase:'Showcase', 'ai-bridge':'AI Bridge', handoff:'Handoff'};
 function trackLabel(track){ return TRACK_LABELS[track] || track.toUpperCase(); }
 
-// --- Real per-period rotation dates, from MCA's published class-rotation calendar ---
-// Each period (1-7) has its own list of 20 dates per quarter, since only 4 of the 7
-// periods meet on any given school day. Q1 is fully covered by the published calendar.
-// Q2 is only published through Nov 9, 2026 so far — remaining dates are null (shown as TBD)
-// until MCA publishes further out. Re-run against the school's iCal feed to refresh this.
-const PERIOD_SCHEDULE = {"1":{"q1":["2026-08-13","2026-08-17","2026-08-18","2026-08-20","2026-08-24","2026-08-26","2026-08-27","2026-08-31","2026-09-02","2026-09-04","2026-09-09","2026-09-11","2026-09-15","2026-09-16","2026-09-18","2026-09-22","2026-09-24","2026-09-25","2026-09-29","2026-10-01"],"q2":["2026-10-13","2026-10-15","2026-10-19","2026-10-21","2026-10-23","2026-10-27","2026-10-28","2026-10-30","2026-11-03","2026-11-05","2026-11-06",null,null,null,null,null,null,null,null,null]},"2":{"q1":["2026-08-13","2026-08-17","2026-08-19","2026-08-20","2026-08-24","2026-08-26","2026-08-28","2026-08-31","2026-09-02","2026-09-04","2026-09-09","2026-09-11","2026-09-15","2026-09-17","2026-09-18","2026-09-22","2026-09-24","2026-09-28","2026-09-29","2026-10-01"],"q2":["2026-10-14","2026-10-16","2026-10-19","2026-10-21","2026-10-23","2026-10-27","2026-10-29","2026-10-30","2026-11-03","2026-11-05","2026-11-09",null,null,null,null,null,null,null,null,null]},"3":{"q1":["2026-08-13","2026-08-17","2026-08-19","2026-08-21","2026-08-24","2026-08-26","2026-08-28","2026-09-01","2026-09-02","2026-09-08","2026-09-09","2026-09-11","2026-09-15","2026-09-17","2026-09-21","2026-09-22","2026-09-24","2026-09-28","2026-09-30","2026-10-01"],"q2":["2026-10-14","2026-10-16","2026-10-20","2026-10-21","2026-10-23","2026-10-27","2026-10-29","2026-11-02","2026-11-03","2026-11-05","2026-11-09",null,null,null,null,null,null,null,null,null]},"4":{"q1":["2026-08-14","2026-08-17","2026-08-19","2026-08-21","2026-08-25","2026-08-26","2026-08-28","2026-09-01","2026-09-03","2026-09-08","2026-09-10","2026-09-14","2026-09-15","2026-09-17","2026-09-21","2026-09-23","2026-09-24","2026-09-28","2026-09-30","2026-10-02"],"q2":["2026-10-14","2026-10-16","2026-10-20","2026-10-22","2026-10-26","2026-10-27","2026-10-29","2026-11-02","2026-11-04","2026-11-05","2026-11-09",null,null,null,null,null,null,null,null,null]},"5":{"q1":["2026-08-14","2026-08-18","2026-08-19","2026-08-21","2026-08-25","2026-08-27","2026-08-28","2026-09-01","2026-09-03","2026-09-08","2026-09-10","2026-09-14","2026-09-16","2026-09-17","2026-09-21","2026-09-23","2026-09-25","2026-09-28","2026-09-30","2026-10-02"],"q2":["2026-10-13","2026-10-15","2026-10-16","2026-10-20","2026-10-22","2026-10-26","2026-10-28","2026-10-29","2026-11-02","2026-11-04","2026-11-06","2026-11-09",null,null,null,null,null,null,null,null]},"6":{"q1":["2026-08-14","2026-08-18","2026-08-20","2026-08-21","2026-08-25","2026-08-27","2026-08-31","2026-09-01","2026-09-03","2026-09-08","2026-09-10","2026-09-14","2026-09-16","2026-09-18","2026-09-21","2026-09-23","2026-09-25","2026-09-29","2026-09-30","2026-10-02"],"q2":["2026-10-13","2026-10-15","2026-10-19","2026-10-20","2026-10-22","2026-10-26","2026-10-28","2026-10-30","2026-11-02","2026-11-04","2026-11-06",null,null,null,null,null,null,null,null,null]},"7":{"q1":["2026-08-14","2026-08-18","2026-08-20","2026-08-24","2026-08-25","2026-08-27","2026-08-31","2026-09-02","2026-09-03","2026-09-09","2026-09-10","2026-09-14","2026-09-16","2026-09-18","2026-09-22","2026-09-23","2026-09-25","2026-09-29","2026-10-01","2026-10-02"],"q2":["2026-10-13","2026-10-15","2026-10-19","2026-10-21","2026-10-22","2026-10-26","2026-10-28","2026-10-30","2026-11-03","2026-11-04","2026-11-06",null,null,null,null,null,null,null,null,null]}};
+// --- Real per-rotation school days, from MCA's published class-rotation calendar ---
+// Each rotation spans 1-3 real school days, since only 4 of the 7 periods meet per day.
+// A rotation's day-list records exactly which periods met on each of its days. Some days
+// are shared between two rotations (e.g. periods 6-7 finish one rotation, 1-2 start the next) —
+// the calendar prompts which rotation to view when a day belongs to two.
+// Q1 is fully covered by the published calendar; Q2 is only published through Nov 9, 2026 so
+// far, so later rotations are partially or fully TBD until MCA publishes further out.
+const ROTATION_DAYS_Q1 = {"1":[{"date":"2026-08-13","periods":[1,2,3]},{"date":"2026-08-14","periods":[4,5,6,7]}],"2":[{"date":"2026-08-17","periods":[1,2,3,4]},{"date":"2026-08-18","periods":[5,6,7]}],"3":[{"date":"2026-08-18","periods":[1]},{"date":"2026-08-19","periods":[2,3,4,5]},{"date":"2026-08-20","periods":[6,7]}],"4":[{"date":"2026-08-20","periods":[1,2]},{"date":"2026-08-21","periods":[3,4,5,6]},{"date":"2026-08-24","periods":[7]}],"5":[{"date":"2026-08-24","periods":[1,2,3]},{"date":"2026-08-25","periods":[4,5,6,7]}],"6":[{"date":"2026-08-26","periods":[1,2,3,4]},{"date":"2026-08-27","periods":[5,6,7]}],"7":[{"date":"2026-08-27","periods":[1]},{"date":"2026-08-28","periods":[2,3,4,5]},{"date":"2026-08-31","periods":[6,7]}],"8":[{"date":"2026-08-31","periods":[1,2]},{"date":"2026-09-01","periods":[3,4,5,6]},{"date":"2026-09-02","periods":[7]}],"9":[{"date":"2026-09-02","periods":[1,2,3]},{"date":"2026-09-03","periods":[4,5,6,7]}],"10":[{"date":"2026-09-04","periods":[1,2]},{"date":"2026-09-08","periods":[3,4,5,6]},{"date":"2026-09-09","periods":[7]}],"11":[{"date":"2026-09-09","periods":[1,2,3]},{"date":"2026-09-10","periods":[4,5,6,7]}],"12":[{"date":"2026-09-11","periods":[1,2,3]},{"date":"2026-09-14","periods":[4,5,6,7]}],"13":[{"date":"2026-09-15","periods":[1,2,3,4]},{"date":"2026-09-16","periods":[5,6,7]}],"14":[{"date":"2026-09-16","periods":[1]},{"date":"2026-09-17","periods":[2,3,4,5]},{"date":"2026-09-18","periods":[6,7]}],"15":[{"date":"2026-09-18","periods":[1,2]},{"date":"2026-09-21","periods":[3,4,5,6]},{"date":"2026-09-22","periods":[7]}],"16":[{"date":"2026-09-22","periods":[1,2,3]},{"date":"2026-09-23","periods":[4,5,6,7]}],"17":[{"date":"2026-09-24","periods":[1,2,3,4]},{"date":"2026-09-25","periods":[5,6,7]}],"18":[{"date":"2026-09-25","periods":[1]},{"date":"2026-09-28","periods":[2,3,4,5]},{"date":"2026-09-29","periods":[6,7]}],"19":[{"date":"2026-09-29","periods":[1,2]},{"date":"2026-09-30","periods":[3,4,5,6]},{"date":"2026-10-01","periods":[7]}],"20":[{"date":"2026-10-01","periods":[1,2,3]},{"date":"2026-10-02","periods":[4,5,6,7]}]};
+const ROTATION_DAYS_Q2 = {"1":[{"date":"2026-10-13","periods":[1,5,6,7]},{"date":"2026-10-14","periods":[2,3,4]}],"2":[{"date":"2026-10-15","periods":[1,5,6,7]},{"date":"2026-10-16","periods":[2,3,4]}],"3":[{"date":"2026-10-16","periods":[5]},{"date":"2026-10-19","periods":[1,2,6,7]},{"date":"2026-10-20","periods":[3,4]}],"4":[{"date":"2026-10-20","periods":[5,6]},{"date":"2026-10-21","periods":[1,2,3,7]},{"date":"2026-10-22","periods":[4]}],"5":[{"date":"2026-10-22","periods":[5,6,7]},{"date":"2026-10-23","periods":[1,2,3]},{"date":"2026-10-26","periods":[4]}],"6":[{"date":"2026-10-26","periods":[5,6,7]},{"date":"2026-10-27","periods":[1,2,3,4]}],"7":[{"date":"2026-10-28","periods":[1,5,6,7]},{"date":"2026-10-29","periods":[2,3,4]}],"8":[{"date":"2026-10-29","periods":[5]},{"date":"2026-10-30","periods":[1,2,6,7]},{"date":"2026-11-02","periods":[3,4]}],"9":[{"date":"2026-11-02","periods":[5,6]},{"date":"2026-11-03","periods":[1,2,3,7]},{"date":"2026-11-04","periods":[4]}],"10":[{"date":"2026-11-04","periods":[5,6,7]},{"date":"2026-11-05","periods":[1,2,3,4]}],"11":[{"date":"2026-11-06","periods":[1,5,6,7]},{"date":"2026-11-09","periods":[2,3,4]}],"12":[{"date":"2026-11-09","periods":[5]}],"13":[],"14":[],"15":[],"16":[],"17":[],"18":[],"19":[],"20":[]};
 
 function dateKey(d){ return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; }
 function parseISODate(iso){
   const [y, m, d] = iso.split('-').map(Number);
   return new Date(y, m - 1, d);
 }
-function periodDateForRotation(quarter, period, rotationNum){
-  const key = quarter === 1 ? 'q1' : 'q2';
-  const iso = PERIOD_SCHEDULE[period][key][rotationNum - 1];
-  return iso ? parseISODate(iso) : null;
-}
+function rotationDaysFor(quarter){ return quarter === 1 ? ROTATION_DAYS_Q1 : ROTATION_DAYS_Q2; }
+function rotDaysForRotation(rot){ return rotationDaysFor(activeQuarter)[String(rot.r)] || []; }
 function rotDateLabel(rot){
-  const d = periodDateForRotation(activeQuarter, activePeriod, rot.r);
-  return d ? fmtDate(d) : 'Date TBD';
+  const days = rotDaysForRotation(rot);
+  if(!days.length) return 'Date TBD';
+  return days.map(d => `${fmtDate(parseISODate(d.date))} (P${d.periods.join(',')})`).join(' · ');
 }
 
 function processRotations(rots){
@@ -1558,11 +1546,16 @@ function processRotations(rots){
     rot.status = rot.tags.includes('graded') ? 'graded' : rot.tags.includes('goal') ? 'goal' : rot.tags.includes('checkin') ? 'checkin' : 'plain';
   });
 }
-function buildDayMap(rots, quarter, period){
-  const map = {};
-  rots.forEach(rot => {
-    const d = periodDateForRotation(quarter, period, rot.r);
-    if(d) map[dateKey(d)] = rot;
+function buildDayRotationMap(quarter){
+  const map = {}; // dateKey -> [{rotation, periods}, ...] (usually 1 entry, sometimes 2 on a shared day)
+  const rotationDays = rotationDaysFor(quarter);
+  Object.entries(rotationDays).forEach(([rotStr, days]) => {
+    const rotation = parseInt(rotStr, 10);
+    days.forEach(({date, periods}) => {
+      const key = dateKey(parseISODate(date));
+      if(!map[key]) map[key] = [];
+      map[key].push({rotation, periods});
+    });
   });
   return map;
 }
@@ -1570,17 +1563,17 @@ function buildDayMap(rots, quarter, period){
 processRotations(rotationsQ1);
 processRotations(rotationsQ2);
 
-// --- Quarter + period + month-page state ---
+// --- Quarter + month-page state ---
 let activeQuarter = 1;
-let activePeriod = 1;
 let currentMonthPos = 0;
 let currentFilter = 'all';
 function activeRotations(){ return activeQuarter === 1 ? rotationsQ1 : rotationsQ2; }
-function activeDayMap(){ return buildDayMap(activeRotations(), activeQuarter, activePeriod); }
+function activeDayMap(){ return buildDayRotationMap(activeQuarter); }
 function activeMonths(){
-  const dates = Object.values(activeDayMap()).map(rot => periodDateForRotation(activeQuarter, activePeriod, rot.r));
+  const keys = Object.keys(activeDayMap());
+  if(!keys.length) return [{year: 2026, month: 7}];
+  const dates = keys.map(k => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m, d); });
   dates.sort((a, b) => a - b);
-  if(!dates.length) return [{year: 2026, month: 7}];
   const first = dates[0], last = dates[dates.length - 1];
   const months = [];
   let y = first.getFullYear(), m = first.getMonth();
@@ -1675,17 +1668,25 @@ function renderCalendarMonth(){
   for(let day = 1; day <= daysInMonth; day++){
     const d = new Date(year, m, day);
     const dow = d.getDay();
-    const rot = dayMap[dateKey(d)];
+    const entries = dayMap[dateKey(d)];
     if(dow === 0 || dow === 6){
       html += `<div class="cal-day weekend"><span class="cd-daynum">${day}</span></div>`;
-    } else if(!rot){
+    } else if(!entries || !entries.length){
       html += `<div class="cal-day out-of-range"><span class="cd-daynum">${day}</span></div>`;
     } else {
-      const badge = rotationBadge(rot);
-      const tip = rot.summary ? ` title="Rotation ${rot.r}: ${rot.summary}"` : '';
-      html += `<div class="cal-day has-rotation ${rotationColorClass(rot)}" data-rotation="${rot.r}"${tip}>
-        <span class="cd-top"><span class="cd-daynum">${day}</span>${badge ? `<span class="cd-badge">${badge}</span>` : ''}</span>
-        <span class="cd-rnum">R${rot.r}</span>
+      const isSplit = entries.length > 1;
+      const primary = activeRotations().find(x => x.r === entries[0].rotation);
+      const badge = rotationBadge(primary);
+      const rLabel = entries.map(e => `R${e.rotation}`).join('/');
+      const periodsLabel = entries.map(e => `P${e.periods.join(',')}`).join(' · ');
+      const dataEntries = entries.map(e => `${e.rotation}:${e.periods.join(',')}`).join('|');
+      const tip = isSplit
+        ? `Shared day — ${entries.map(e => `Rotation ${e.rotation} (Periods ${e.periods.join(', ')})`).join(' & ')}`
+        : `Rotation ${primary.r}: ${primary.summary || ''}`;
+      html += `<div class="cal-day has-rotation ${rotationColorClass(primary)}${isSplit ? ' split-day' : ''}" data-entries="${dataEntries}" title="${tip}">
+        <span class="cd-top"><span class="cd-daynum">${day}</span>${!isSplit && badge ? `<span class="cd-badge">${badge}</span>` : ''}</span>
+        <span class="cd-rnum">${rLabel}</span>
+        <span class="cd-periods">${periodsLabel}</span>
       </div>`;
     }
   }
@@ -1699,9 +1700,39 @@ function renderCalendarMonth(){
   applyFilter();
 }
 
+function parseCellEntries(str){
+  return str.split('|').map(s => {
+    const [r, p] = s.split(':');
+    return {rotation: parseInt(r, 10), periods: p.split(',').map(Number)};
+  });
+}
+
+function openDayPicker(entries){
+  modalEl.className = 'modal';
+  const options = entries.map(e => {
+    const rot = activeRotations().find(x => x.r === e.rotation);
+    return `<button class="picker-option" data-rotation="${e.rotation}">
+      <div class="po-title">Rotation ${e.rotation} — Periods ${e.periods.join(', ')}</div>
+      <div class="po-sub">${rot ? rot.summary : ''}</div>
+    </button>`;
+  }).join('');
+  modalEl.innerHTML = `
+    <button class="close" onclick="closeModal()">✕</button>
+    <div class="picker-title">This day is shared between two rotations — which do you want to view?</div>
+    ${options}
+  `;
+  modalEl.querySelectorAll('.picker-option').forEach(btn => {
+    btn.addEventListener('click', () => openModal(parseInt(btn.dataset.rotation, 10)));
+  });
+  overlayEl.classList.add('show');
+}
+
 calEl.addEventListener('click', (e) => {
   const cell = e.target.closest('.cal-day.has-rotation');
-  if(cell) openModal(parseInt(cell.dataset.rotation, 10));
+  if(!cell) return;
+  const entries = parseCellEntries(cell.dataset.entries);
+  if(entries.length === 1) openModal(entries[0].rotation);
+  else openDayPicker(entries);
 });
 
 monthPrevBtn.addEventListener('click', () => {
@@ -1773,7 +1804,7 @@ document.querySelectorAll('nav.tabs button').forEach(btn => {
 });
 
 function updatePdfButtonLabel(){
-  document.getElementById('download-pdf').textContent = `📥 Download PDF (Quarter ${activeQuarter} · Period ${activePeriod})`;
+  document.getElementById('download-pdf').textContent = `📥 Download PDF (Quarter ${activeQuarter})`;
 }
 
 document.querySelectorAll('.quarter-switch button').forEach(btn => {
@@ -1795,20 +1826,8 @@ document.querySelectorAll('.quarter-switch button').forEach(btn => {
   });
 });
 
-document.querySelectorAll('.period-switch button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.period-switch button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activePeriod = parseInt(btn.dataset.period, 10);
-    updatePdfButtonLabel();
-    currentMonthPos = 0;
-    renderCalendarMonth();
-    renderList();
-  });
-});
-
 function buildPrintView(){
-  const label = `Quarter ${activeQuarter} · Period ${activePeriod}`;
+  const label = `Quarter ${activeQuarter}`;
   const rots = activeRotations();
   let html = `
     <div class="print-title">Computing &amp; Digital Dynamics — Pacing Guide</div>
