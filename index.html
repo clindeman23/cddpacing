@@ -213,6 +213,21 @@ p.section-sub{color:var(--muted);font-size:0.88rem;margin:-10px 0 20px;}
 .cal-day.rc1{background:#ede9fe;border-color:#c4b5fd;color:#5b21b6;}
 .cal-day.rc2{background:#e0f2fe;border-color:#7dd3fc;color:#075985;}
 
+/* Period switcher */
+.period-switch{display:flex;align-items:center;gap:6px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;}
+.period-switch-label{
+  font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:0.5px;margin-right:2px;
+}
+.period-switch button{
+  border:1px solid var(--border);background:var(--card);color:var(--text);
+  width:32px;height:32px;border-radius:6px;font-weight:700;font-size:0.85rem;
+  font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.15s;
+}
+.period-switch button:hover{border-color:var(--accent);}
+.period-switch button.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+p.period-note{text-align:center;max-width:640px;margin-left:auto;margin-right:auto;}
+
 /* Grid / List view toggle */
 .view-toggle{display:flex;gap:8px;justify-content:center;margin-bottom:18px;}
 .view-toggle button{
@@ -402,6 +417,18 @@ footer{
       <h2 class="section-title">Rotation Calendar</h2>
       <button id="download-pdf" class="pdf-btn">📥 Download PDF (Quarter 1)</button>
     </div>
+
+    <div class="period-switch">
+      <span class="period-switch-label">Period:</span>
+      <button class="active" data-period="1">1</button>
+      <button data-period="2">2</button>
+      <button data-period="3">3</button>
+      <button data-period="4">4</button>
+      <button data-period="5">5</button>
+      <button data-period="6">6</button>
+      <button data-period="7">7</button>
+    </div>
+    <p class="section-sub period-note">Dates come from MCA's published class-rotation calendar for whichever period is selected above (Period 1/2 sections meet at the same time as each other, just in different rooms). Rotations shown as <strong>TBD</strong> haven't been scheduled by the school yet — Q2 dates are only published through Nov 9, 2026 so far.</p>
 
     <div class="view-toggle">
       <button class="active" data-view="grid">🔲 Grid View</button>
@@ -1504,59 +1531,65 @@ const rotationsQ2 = [
 const TRACK_LABELS = {cs1:'CS1', gd1:'GD1', cs2:'CS2', portfolio:'Portfolio', showcase:'Showcase', 'ai-bridge':'AI Bridge', handoff:'Handoff'};
 function trackLabel(track){ return TRACK_LABELS[track] || track.toUpperCase(); }
 
-// --- Parse each rotation's date range into real calendar dates ---
-// Placeholder year (2026) so weekdays line up visually; update once the
-// actual 2026-27 rotation calendar is available.
-const YEAR = 2026;
-const MONTH_IDX = {Aug:7, Sep:8, Oct:9, Nov:10, Dec:11};
-function parseOneDate(str){
-  const [mon, day] = str.trim().split(' ');
-  return {month: MONTH_IDX[mon], day: parseInt(day, 10)};
-}
-function parseRange(dates){
-  const [startStr, endStr] = dates.split('–');
-  const start = parseOneDate(startStr);
-  const end = /[A-Za-z]/.test(endStr) ? parseOneDate(endStr) : {month:start.month, day:parseInt(endStr,10)};
-  return {
-    start: new Date(YEAR, start.month, start.day),
-    end: new Date(YEAR, end.month, end.day)
-  };
-}
+// --- Real per-period rotation dates, from MCA's published class-rotation calendar ---
+// Each period (1-7) has its own list of 20 dates per quarter, since only 4 of the 7
+// periods meet on any given school day. Q1 is fully covered by the published calendar.
+// Q2 is only published through Nov 9, 2026 so far — remaining dates are null (shown as TBD)
+// until MCA publishes further out. Re-run against the school's iCal feed to refresh this.
+const PERIOD_SCHEDULE = {"1":{"q1":["2026-08-13","2026-08-17","2026-08-18","2026-08-20","2026-08-24","2026-08-26","2026-08-27","2026-08-31","2026-09-02","2026-09-04","2026-09-09","2026-09-11","2026-09-15","2026-09-16","2026-09-18","2026-09-22","2026-09-24","2026-09-25","2026-09-29","2026-10-01"],"q2":["2026-10-13","2026-10-15","2026-10-19","2026-10-21","2026-10-23","2026-10-27","2026-10-28","2026-10-30","2026-11-03","2026-11-05","2026-11-06",null,null,null,null,null,null,null,null,null]},"2":{"q1":["2026-08-13","2026-08-17","2026-08-19","2026-08-20","2026-08-24","2026-08-26","2026-08-28","2026-08-31","2026-09-02","2026-09-04","2026-09-09","2026-09-11","2026-09-15","2026-09-17","2026-09-18","2026-09-22","2026-09-24","2026-09-28","2026-09-29","2026-10-01"],"q2":["2026-10-14","2026-10-16","2026-10-19","2026-10-21","2026-10-23","2026-10-27","2026-10-29","2026-10-30","2026-11-03","2026-11-05","2026-11-09",null,null,null,null,null,null,null,null,null]},"3":{"q1":["2026-08-13","2026-08-17","2026-08-19","2026-08-21","2026-08-24","2026-08-26","2026-08-28","2026-09-01","2026-09-02","2026-09-08","2026-09-09","2026-09-11","2026-09-15","2026-09-17","2026-09-21","2026-09-22","2026-09-24","2026-09-28","2026-09-30","2026-10-01"],"q2":["2026-10-14","2026-10-16","2026-10-20","2026-10-21","2026-10-23","2026-10-27","2026-10-29","2026-11-02","2026-11-03","2026-11-05","2026-11-09",null,null,null,null,null,null,null,null,null]},"4":{"q1":["2026-08-14","2026-08-17","2026-08-19","2026-08-21","2026-08-25","2026-08-26","2026-08-28","2026-09-01","2026-09-03","2026-09-08","2026-09-10","2026-09-14","2026-09-15","2026-09-17","2026-09-21","2026-09-23","2026-09-24","2026-09-28","2026-09-30","2026-10-02"],"q2":["2026-10-14","2026-10-16","2026-10-20","2026-10-22","2026-10-26","2026-10-27","2026-10-29","2026-11-02","2026-11-04","2026-11-05","2026-11-09",null,null,null,null,null,null,null,null,null]},"5":{"q1":["2026-08-14","2026-08-18","2026-08-19","2026-08-21","2026-08-25","2026-08-27","2026-08-28","2026-09-01","2026-09-03","2026-09-08","2026-09-10","2026-09-14","2026-09-16","2026-09-17","2026-09-21","2026-09-23","2026-09-25","2026-09-28","2026-09-30","2026-10-02"],"q2":["2026-10-13","2026-10-15","2026-10-16","2026-10-20","2026-10-22","2026-10-26","2026-10-28","2026-10-29","2026-11-02","2026-11-04","2026-11-06","2026-11-09",null,null,null,null,null,null,null,null]},"6":{"q1":["2026-08-14","2026-08-18","2026-08-20","2026-08-21","2026-08-25","2026-08-27","2026-08-31","2026-09-01","2026-09-03","2026-09-08","2026-09-10","2026-09-14","2026-09-16","2026-09-18","2026-09-21","2026-09-23","2026-09-25","2026-09-29","2026-09-30","2026-10-02"],"q2":["2026-10-13","2026-10-15","2026-10-19","2026-10-20","2026-10-22","2026-10-26","2026-10-28","2026-10-30","2026-11-02","2026-11-04","2026-11-06",null,null,null,null,null,null,null,null,null]},"7":{"q1":["2026-08-14","2026-08-18","2026-08-20","2026-08-24","2026-08-25","2026-08-27","2026-08-31","2026-09-02","2026-09-03","2026-09-09","2026-09-10","2026-09-14","2026-09-16","2026-09-18","2026-09-22","2026-09-23","2026-09-25","2026-09-29","2026-10-01","2026-10-02"],"q2":["2026-10-13","2026-10-15","2026-10-19","2026-10-21","2026-10-22","2026-10-26","2026-10-28","2026-10-30","2026-11-03","2026-11-04","2026-11-06",null,null,null,null,null,null,null,null,null]}};
+
 function dateKey(d){ return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; }
+function parseISODate(iso){
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+function periodDateForRotation(quarter, period, rotationNum){
+  const key = quarter === 1 ? 'q1' : 'q2';
+  const iso = PERIOD_SCHEDULE[period][key][rotationNum - 1];
+  return iso ? parseISODate(iso) : null;
+}
+function rotDateLabel(rot){
+  const d = periodDateForRotation(activeQuarter, activePeriod, rot.r);
+  return d ? fmtDate(d) : 'Date TBD';
+}
 
 function processRotations(rots){
   rots.forEach(rot => {
-    const range = parseRange(rot.dates);
-    rot.start = range.start;
-    rot.end = range.end;
     rot.status = rot.tags.includes('graded') ? 'graded' : rot.tags.includes('goal') ? 'goal' : rot.tags.includes('checkin') ? 'checkin' : 'plain';
   });
 }
-function buildDayMap(rots){
+function buildDayMap(rots, quarter, period){
   const map = {};
   rots.forEach(rot => {
-    const d = new Date(rot.start);
-    while(d <= rot.end){
-      const dow = d.getDay();
-      if(dow !== 0 && dow !== 6) map[dateKey(d)] = rot;
-      d.setDate(d.getDate() + 1);
-    }
+    const d = periodDateForRotation(quarter, period, rot.r);
+    if(d) map[dateKey(d)] = rot;
   });
   return map;
 }
 
 processRotations(rotationsQ1);
 processRotations(rotationsQ2);
-const dayMapQ1 = buildDayMap(rotationsQ1);
-const dayMapQ2 = buildDayMap(rotationsQ2);
 
-// --- Quarter + month-page state ---
+// --- Quarter + period + month-page state ---
 let activeQuarter = 1;
-const QUARTER_MONTHS = {1:[7,8,9], 2:[9,10,11]};
+let activePeriod = 1;
 let currentMonthPos = 0;
 let currentFilter = 'all';
 function activeRotations(){ return activeQuarter === 1 ? rotationsQ1 : rotationsQ2; }
-function activeDayMap(){ return activeQuarter === 1 ? dayMapQ1 : dayMapQ2; }
+function activeDayMap(){ return buildDayMap(activeRotations(), activeQuarter, activePeriod); }
+function activeMonths(){
+  const dates = Object.values(activeDayMap()).map(rot => periodDateForRotation(activeQuarter, activePeriod, rot.r));
+  dates.sort((a, b) => a - b);
+  if(!dates.length) return [{year: 2026, month: 7}];
+  const first = dates[0], last = dates[dates.length - 1];
+  const months = [];
+  let y = first.getFullYear(), m = first.getMonth();
+  while(y < last.getFullYear() || (y === last.getFullYear() && m <= last.getMonth())){
+    months.push({year: y, month: m});
+    m++; if(m > 11){ m = 0; y++; }
+  }
+  return months;
+}
 
 const ROTATION_COLOR_COUNT = 3;
 function rotationColorClass(rot){ return 'rc' + ((rot.r - 1) % ROTATION_COLOR_COUNT); }
@@ -1607,7 +1640,7 @@ function openModal(r){
     <button class="close" onclick="closeModal()">✕</button>
     <div class="cd-head">
       <h4>Rotation ${rot.r}</h4>
-      <span class="cd-date">${rot.dates}</span>
+      <span class="cd-date">${rotDateLabel(rot)}</span>
       <span class="cd-pills">${rotationPillsHTML(rot)}</span>
     </div>
     ${rotationBodyHTML(rot)}
@@ -1619,7 +1652,9 @@ overlayEl.addEventListener('click', (e) => { if(e.target === overlayEl) closeMod
 document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
 
 // --- Render one month at a time ---
-const MONTH_NAMES = {7:'August', 8:'September', 9:'October', 10:'November', 11:'December'};
+const MONTH_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MONTH_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+function fmtDate(d){ return `${MONTH_ABBR[d.getMonth()]} ${d.getDate()}`; }
 const WEEKDAY_LABELS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const calEl = document.getElementById('calendar');
 const monthLabelEl = document.getElementById('month-label');
@@ -1627,18 +1662,18 @@ const monthPrevBtn = document.getElementById('month-prev');
 const monthNextBtn = document.getElementById('month-next');
 
 function renderCalendarMonth(){
-  const months = QUARTER_MONTHS[activeQuarter];
-  const m = months[currentMonthPos];
+  const months = activeMonths();
+  const {year, month: m} = months[currentMonthPos];
   const dayMap = activeDayMap();
-  const daysInMonth = new Date(YEAR, m + 1, 0).getDate();
-  const firstDow = new Date(YEAR, m, 1).getDay();
+  const daysInMonth = new Date(year, m + 1, 0).getDate();
+  const firstDow = new Date(year, m, 1).getDay();
 
   let html = `<div class="cal-month">`;
   html += `<div class="cal-weekdays">${WEEKDAY_LABELS.map(w => `<span>${w}</span>`).join('')}</div>`;
   html += `<div class="cal-grid">`;
   for(let i = 0; i < firstDow; i++) html += `<div class="cal-day empty"></div>`;
   for(let day = 1; day <= daysInMonth; day++){
-    const d = new Date(YEAR, m, day);
+    const d = new Date(year, m, day);
     const dow = d.getDay();
     const rot = dayMap[dateKey(d)];
     if(dow === 0 || dow === 6){
@@ -1657,7 +1692,7 @@ function renderCalendarMonth(){
   html += `</div></div>`;
   calEl.innerHTML = html;
 
-  monthLabelEl.textContent = `${MONTH_NAMES[m]} ${YEAR}`;
+  monthLabelEl.textContent = `${MONTH_FULL[m]} ${year}`;
   monthPrevBtn.disabled = currentMonthPos === 0;
   monthNextBtn.disabled = currentMonthPos === months.length - 1;
 
@@ -1673,7 +1708,7 @@ monthPrevBtn.addEventListener('click', () => {
   if(currentMonthPos > 0){ currentMonthPos--; renderCalendarMonth(); }
 });
 monthNextBtn.addEventListener('click', () => {
-  const months = QUARTER_MONTHS[activeQuarter];
+  const months = activeMonths();
   if(currentMonthPos < months.length - 1){ currentMonthPos++; renderCalendarMonth(); }
 });
 
@@ -1687,7 +1722,7 @@ function renderList(){
     row.dataset.tags = rot.tags.join(',');
     row.innerHTML = `
       <span class="lr-num">Rotation ${rot.r}</span>
-      <span class="lr-date">${rot.dates}</span>
+      <span class="lr-date">${rotDateLabel(rot)}</span>
       <span class="lr-pills">${rotationPillsHTML(rot)}</span>
       ${rot.summary ? `<span class="lr-summary">${rot.summary}</span>` : ''}
     `;
@@ -1737,13 +1772,17 @@ document.querySelectorAll('nav.tabs button').forEach(btn => {
   });
 });
 
+function updatePdfButtonLabel(){
+  document.getElementById('download-pdf').textContent = `📥 Download PDF (Quarter ${activeQuarter} · Period ${activePeriod})`;
+}
+
 document.querySelectorAll('.quarter-switch button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.quarter-switch button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeQuarter = parseInt(btn.dataset.qtr, 10);
     document.getElementById('qtr-label').textContent = 'Quarter ' + activeQuarter;
-    document.getElementById('download-pdf').textContent = '📥 Download PDF (Quarter ' + activeQuarter + ')';
+    updatePdfButtonLabel();
     currentMonthPos = 0;
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
     document.querySelector('.filters button[data-filter="all"]').classList.add('active');
@@ -1756,8 +1795,20 @@ document.querySelectorAll('.quarter-switch button').forEach(btn => {
   });
 });
 
+document.querySelectorAll('.period-switch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.period-switch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activePeriod = parseInt(btn.dataset.period, 10);
+    updatePdfButtonLabel();
+    currentMonthPos = 0;
+    renderCalendarMonth();
+    renderList();
+  });
+});
+
 function buildPrintView(){
-  const label = 'Quarter ' + activeQuarter;
+  const label = `Quarter ${activeQuarter} · Period ${activePeriod}`;
   const rots = activeRotations();
   let html = `
     <div class="print-title">Computing &amp; Digital Dynamics — Pacing Guide</div>
@@ -1769,7 +1820,7 @@ function buildPrintView(){
       <div class="print-rotation">
         <div class="print-rot-head">
           <span class="print-rot-num">Rotation ${rot.r}</span>
-          <span class="print-rot-date">${rot.dates}</span>
+          <span class="print-rot-date">${rotDateLabel(rot)}</span>
         </div>
         ${rotationBodyHTML(rot)}
       </div>
@@ -1880,6 +1931,7 @@ document.querySelectorAll(".leftoff-save").forEach(btn => {
 });
 document.getElementById("leftoff-refresh").addEventListener("click", loadLeftoff);
 
+updatePdfButtonLabel();
 renderCalendarMonth();
 renderList();
 </script>
